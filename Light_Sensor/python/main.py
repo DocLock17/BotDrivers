@@ -14,7 +14,8 @@ try:
       print("lux = ", lux)
       time.sleep(1)
 
-except:
+except Exception as e:
     # GPIO.cleanup()
+    print(e)
     print("\nProgram end")
     exit()
