@@ -167,8 +167,8 @@ class TSL2581:
       chScale0 = chScale0 >> 3; # Scale/multiply value by 1/16
       chScale1 = chScale0;
     elif (iGain == 3):
-	  chScale1 = chScale0 / CH1GAIN128X
-	  chScale0 = chScale0 / CH0GAIN128X
+	    chScale1 = chScale0 / CH1GAIN128X
+	    chScale0 = chScale0 / CH0GAIN128X
     
     Channel_0 = self.Read_Channel(0)
     Channel_1 = self.Read_Channel(1)
