@@ -161,10 +161,10 @@ class TSL2581:
     if (iGain == 0):
       chScale1 = chScale0
     elif (iGain == 1):
-      chScale0 = chScale0 >> 3; # Scale/multiply value by 1/8
+      chScale0 = chScale0 >> int(3); # Scale/multiply value by 1/8
       chScale1 = chScale0;
     elif (iGain == 2):
-      chScale0 = chScale0 >> 3; # Scale/multiply value by 1/16
+      chScale0 = chScale0 >> int(3); # Scale/multiply value by 1/16
       chScale1 = chScale0;
     elif (iGain == 3):
 	    chScale1 = chScale0 / CH1GAIN128X
@@ -172,13 +172,13 @@ class TSL2581:
     
     Channel_0 = self.Read_Channel(0)
     Channel_1 = self.Read_Channel(1)
-    channel0 = (Channel_0 * chScale0) >>  CH_SCALE
-    channel1 = (Channel_1 * chScale1) >>  CH_SCALE
+    channel0 = (Channel_0 * chScale0) >>  int(CH_SCALE)
+    channel1 = (Channel_1 * chScale1) >>  int(CH_SCALE)
 
     ratio1 = 0
     if (channel0 != 0):
       ratio1 = (channel1 << (RATIO_SCALE + 1)) / channel0
-    ratio = (ratio1 + 1) >> 1
+    ratio = (ratio1 + 1) >> int(1)
     
     if ((ratio >= 0X00) or (ratio <= K1C)):
       b = B1C  
@@ -199,7 +199,7 @@ class TSL2581:
     temp = ((channel0 * b) - (channel1 * m))
     temp = temp+(1 << (LUX_SCALE - 1))			
 
-    lux_temp = temp >> LUX_SCALE			
+    lux_temp = temp >> int(LUX_SCALE)			
     return lux_temp
 
 
