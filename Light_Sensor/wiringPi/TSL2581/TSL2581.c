@@ -76,6 +76,8 @@ void Read_Channel()
 	DataHigh = IIC_Read(COMMAND_CMD | TRANSACTION | DATA1HIGH);
 	Channel_1 = 256 * DataHigh + DataLow ;
 	
+	//printf("Channel %d  %d \r\n",Channel_0,Channel_1);
+	
 }
 
 /**********************************************************************************************

@@ -8,14 +8,13 @@ try:
     id=Light.Read_ID() & 0xf0
     print('ID = %#x'%id)
     Light.Init_TSL2581()
-    
+
     while True:
-      lux  =  Light.calculate_Lux()
-      print("lux = ", lux)
+      lux  =  Light.calculate_Lux(2, 148)
+      print('lux = %#d'%lux)
       time.sleep(1)
 
-except Exception as e:
+except:
     # GPIO.cleanup()
-    print(e)
-    print("\nProgram end")
+    print ("\nProgram end")
     exit()

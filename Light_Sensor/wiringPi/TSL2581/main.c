@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 	
 	while(1)
 	{		
-		lux  =  calculateLux(1, NOM_INTEG_CYCLE);
+		lux  =  calculateLux(2, NOM_INTEG_CYCLE);
 		printf("lux = %d \r\n", lux);
 		DEV_Delay_ms(500);
 	}

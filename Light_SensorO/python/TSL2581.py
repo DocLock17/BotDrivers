@@ -3,6 +3,7 @@
 import time
 import math
 import smbus
+import pygame
 
 COMMAND_CMD  = 0x80   
 TRANSACTION  = 0x40    # Read/Write block protocol.
@@ -68,7 +69,9 @@ NOM_INTEG_CYCLE = 148
 #---------------------------------------------------
 # Gain scaling factors
 #---------------------------------------------------
+
 CH0GAIN128X = 7 # 128X gain scalar for Ch0
+
 CH1GAIN128X = 115 # 128X gain scalar for Ch1
 
 #---------------------------------------------------
@@ -121,7 +124,7 @@ class TSL2581:
     self.Write(COMMAND_CMD | TIMING, INTEGRATIONTIME_400MS)
     self.Write(COMMAND_CMD | CONTROL, ADC_EN | CONTROL_POWERON)
     self.Write(COMMAND_CMD | INTERRUPT, INTR_INTER_MODE)
-    self.Write(COMMAND_CMD | ANALOG, GAIN_16X )
+    self.Write(COMMAND_CMD | ANALOG, GAIN_8X )
 
   def Read_ID(self):
     id = self.Read(COMMAND_CMD | TRANSACTION | ID)
@@ -142,15 +145,14 @@ class TSL2581:
     if (Channel == 0):
       DataLow  = self.Read(COMMAND_CMD | TRANSACTION | DATA0LOW)
       DataHigh = self.Read(COMMAND_CMD | TRANSACTION | DATA0HIGH) 
-    
+
     elif (Channel == 1):
       DataLow  = self.Read(COMMAND_CMD | TRANSACTION | DATA1LOW)
       DataHigh = self.Read(COMMAND_CMD | TRANSACTION | DATA1HIGH)     
     value = 256 * DataHigh + DataLow 
-    #print(value)
     return value
 
-  def calculate_Lux(self, iGain, tIntCycles):
+  def calculate_Lux(self, iGain=1, tIntCycles=NOM_INTEG_CYCLE):
     if (tIntCycles == NOM_INTEG_CYCLE):
       chScale0 = (1 << (CH_SCALE))
     elif (tIntCycles != NOM_INTEG_CYCLE):
@@ -159,24 +161,24 @@ class TSL2581:
     if (iGain == 0):
       chScale1 = chScale0
     elif (iGain == 1):
-      chScale0 = chScale0 >> 3; # Scale/multiply value by 1/8
+      chScale0 = chScale0 >> int(3); # Scale/multiply value by 1/8
       chScale1 = chScale0;
     elif (iGain == 2):
-      chScale0 = chScale0 >> 4; # Scale/multiply value by 1/16
+      chScale0 = chScale0 >> int(3); # Scale/multiply value by 1/16
       chScale1 = chScale0;
     elif (iGain == 3):
-      chScale1 = int(chScale0 / CH1GAIN128X)
-      chScale0 = int(chScale0 / CH0GAIN128X)
+	    chScale1 = chScale0 / CH1GAIN128X
+	    chScale0 = chScale0 / CH0GAIN128X
     
     Channel_0 = self.Read_Channel(0)
     Channel_1 = self.Read_Channel(1)
-    channel0 = (Channel_0 * chScale0) >>  CH_SCALE
-    channel1 = (Channel_1 * chScale1) >>  CH_SCALE
+    channel0 = (Channel_0 * chScale0) >>  int(CH_SCALE)
+    channel1 = (Channel_1 * chScale1) >>  int(CH_SCALE)
 
     ratio1 = 0
     if (channel0 != 0):
-      ratio1 = int((channel1 << (RATIO_SCALE + 1)) / channel0)
-    ratio = (ratio1 + 1) >> 1
+      ratio1 = (channel1 << (RATIO_SCALE + 1)) / channel0
+    ratio = (ratio1 + 1) >> int(1)
     
     if ((ratio >= 0X00) or (ratio <= K1C)):
       b = B1C  
@@ -197,7 +199,7 @@ class TSL2581:
     temp = ((channel0 * b) - (channel1 * m))
     temp = temp+(1 << (LUX_SCALE - 1))			
 
-    lux_temp = temp >> LUX_SCALE			
+    lux_temp = temp >> int(LUX_SCALE)			
     return lux_temp
 
 
