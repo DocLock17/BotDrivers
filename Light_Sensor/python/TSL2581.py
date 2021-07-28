@@ -69,7 +69,9 @@ NOM_INTEG_CYCLE = 148
 #---------------------------------------------------
 # Gain scaling factors
 #---------------------------------------------------
-CH0GAIN128X = 07 # 128X gain scalar for Ch0
+
+CH0GAIN128X = 7 # 128X gain scalar for Ch0
+
 CH1GAIN128X = 115 # 128X gain scalar for Ch1
 
 #---------------------------------------------------
