@@ -11,10 +11,10 @@ try:
     
     while True:
       lux  =  Light.calculate_Lux()
-      print"lux = ", lux
+      print("lux = ", lux)
       time.sleep(1)
 
 except:
     # GPIO.cleanup()
-    print "\nProgram end"
+    print("\nProgram end")
     exit()
