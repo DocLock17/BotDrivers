@@ -37,7 +37,7 @@ def server_fonts(filename):
 def cmd():
     global HStep,VStep
     code = request.body.read().decode()
-    print "code ",code
+    print("code ",code)
     # speed = request.POST.get('speed')
     # print(code)
     # if(speed != None):
@@ -120,5 +120,5 @@ try:
     run(host=localhost, port="8001")
 except:
     pwm.exit_PCA9685()
-    print "\nProgram end"
+    print("\nProgram end")
     exit()
