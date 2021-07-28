@@ -26,5 +26,5 @@ try:
 
 except:
     pwm.exit_PCA9685()
-    print "\nProgram end"
+    print("\nProgram end")
     exit()
