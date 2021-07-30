@@ -1,4 +1,6 @@
-# Working Sabortooth Code
+#!/usr/bin/python
+
+# Working Sabortooth Example using GPIO 18
 
 import RPi.GPIO as GPIO
 from time import sleep
@@ -58,5 +60,5 @@ except Exception as e:
     print(e)
 finally:
     print("clean up")
-# pi_pwm.cleanup()
-GPIO.cleanup()
+    # pi_pwm.cleanup()
+    GPIO.cleanup()
