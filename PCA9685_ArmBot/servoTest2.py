@@ -30,7 +30,7 @@ def main():
     
     test1()
     sleep(5)
-    test2()
+    # test2()
     # pcaScenario();
 
 
