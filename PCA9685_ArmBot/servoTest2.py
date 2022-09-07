@@ -133,7 +133,7 @@ def test3():
     set_servo_angle(1,175)
 
     # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-    set_servo_angle(2, 25)
+    set_servo_angle(8, 25)
 
     # Base Rotation (Lower numbers move to Bots right)
     set_servo_angle(3, 100)
