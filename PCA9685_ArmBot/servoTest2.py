@@ -159,7 +159,7 @@ def base_posture(hold_time=2):
     set_servo_angle(1,175)
 
     # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-    set_servo_angle(2, 25)
+    set_servo_angle(8, 25)
 
     # Base Rotation (Lower numbers move to Bots right)
     set_servo_angle(3, 100)
@@ -183,7 +183,7 @@ def scene1(hold_time=2):
     set_servo_angle(1,170)
 
     # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-    set_servo_angle(2, 15)
+    set_servo_angle(8, 15)
 
     # Base Rotation (Lower numbers move to Bots right)
     set_servo_angle(3, 100)
@@ -206,7 +206,7 @@ def scene2(hold_time=2):
     set_servo_angle(1,160)
 
     # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-    set_servo_angle(2, 55)
+    set_servo_angle(8, 55)
 
     # Base Rotation (Lower numbers move to Bots right)
     set_servo_angle(3, 100)
