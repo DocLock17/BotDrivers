@@ -138,7 +138,7 @@ def test3():
     set_servo_angle(8, 25)
     time.sleep(0.1)
     # Base Rotation (Lower numbers move to Bots right)
-    set_servo_angle(3, 100)
+    set_servo_angle(10, 100)
     time.sleep(0.1)
     # Grip Hand (Lower numbers open grippers)
     set_servo_angle(4, 80)
@@ -149,20 +149,20 @@ def test3():
 
     base_rotation = 100
     for each in range(30):
-        base_rotation = set_servo_angle(3, base_rotation+2)
+        base_rotation = set_servo_angle(10, (base_rotation+2))
         print("Base: "+str(base_rotation))
         time.sleep(0.1)
     for each in range(30):
-        base_rotation = set_servo_angle(3, base_rotation-2)
+        base_rotation = set_servo_angle(10, (base_rotation-2))
         print("Base: "+str(base_rotation))
         time.sleep(0.1)
     time.sleep(1)
     for each in range(30):
-        base_rotation = set_servo_angle(3, base_rotation-2)
+        base_rotation = set_servo_angle(10, (base_rotation-2))
         print("Base: "+str(base_rotation))
         time.sleep(0.1)
     for each in range(30):
-        base_rotation = set_servo_angle(3, base_rotation+2)
+        base_rotation = set_servo_angle(10, (base_rotation+2))
         print("Base: "+str(base_rotation))
         time.sleep(0.1)
 
