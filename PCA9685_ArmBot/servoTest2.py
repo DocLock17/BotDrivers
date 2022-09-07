@@ -40,10 +40,10 @@ def set_servo_angle(srvo_num, snd_angl=None): #disable channel if no angle
 # function main 
 def main():
     
-    test1()
+    # test1()
     # sleep(5)
     # test2()
-    sleep(5)
+    # sleep(5)
     test3()
     # sleep(5)
     
@@ -121,7 +121,7 @@ def test3():
     """Declare stiff arm"""
 
     # Wrist Rotation (Lower numbers rotate to bots left)
-    set_servo_angle(0,100)
+    set_servo_angle(0,125)
     
     # Lower Elbow (lower numbers lifts up)
     set_servo_angle(1,160)
@@ -148,7 +148,7 @@ def test3():
     set_servo_angle(13)
     set_servo_angle(14)
     set_servo_angle(15)
-    time.sleep(5)
+    time.sleep(10)
     pcaCleanup()
     print("Done")
 
