@@ -120,16 +120,24 @@ def test2():
 def test3():
     """Declare stiff arm"""
 
-    #Wrist Rotation
+    # Wrist Rotation
     set_servo_angle(0,160)
     
-    #Lower Elbow (lower numbers lifts up)
+    # Lower Elbow (lower numbers lifts up)
     set_servo_angle(1,160)
 
-    set_servo_angle(2)
-    set_servo_angle(3)
-    set_servo_angle(4)
-    set_servo_angle(5)
+    # Upper Elbow (Lower numbers lowers arm or Contracts)
+    set_servo_angle(2, 80)
+
+    # Base Rotation (Lower numbers move to Bots right)
+    set_servo_angle(3, 80)
+
+    # Grip Hand (Lower numbers open grippers)
+    set_servo_angle(4, 80)
+
+    # Base Shoulder (lower numbers extend arm away from bot)
+    set_servo_angle(5, 115)
+    
     set_servo_angle(6)
     set_servo_angle(7)
     set_servo_angle(8)
