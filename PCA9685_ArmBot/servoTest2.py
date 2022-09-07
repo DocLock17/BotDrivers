@@ -8,6 +8,7 @@ from adafruit_servokit import ServoKit    #https://circuitpython.readthedocs.io/
 #Constants
 nbPCAServo=16 
 
+#need to get the pulse width range of the MG996R
 #Parameters
 MIN_IMP  =[500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
 MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500]
@@ -26,8 +27,8 @@ def init():
 
 # function main 
 def main():
-
-    pcaScenario();
+    # pcaScenario();
+    test1()
 
 
 # function pcaScenario 
@@ -45,7 +46,33 @@ def pcaScenario():
         pca.servo[i].angle=None #disable channel
         time.sleep(0.5)
 
+def test1():
+    """The basics of finding a neutral posture for ArmBot? \
+         We will start with sending one servo an angle or two."""
 
+    # Servo number 
+    srvo_num = 1
+
+    # Angle
+    snd_angl = 70
+    print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
+    pca.servo[srvo_num].angle = snd_angl
+    time.sleep(0.01)
+
+    snd_angl = 110
+    print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
+    pca.servo[srvo_num].angle = snd_angl
+    time.sleep(0.01)
+
+    snd_angl = 70
+    print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
+    pca.servo[srvo_num].angle = snd_angl
+    time.sleep(0.01)
+
+    snd_angl = 110
+    print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
+    pca.servo[srvo_num].angle = snd_angl
+    time.sleep(0.01)
 
 
 if __name__ == '__main__':
