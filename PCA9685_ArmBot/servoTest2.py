@@ -111,7 +111,7 @@ def test2():
 def test3():
     """Declare stiff arm"""
     pca.servo[0].angle = None
-    pca.servo[1].angle = None
+    pca.servo[1].angle = 30
     pca.servo[2].angle = None
     pca.servo[3].angle = None
     pca.servo[4].angle = None
