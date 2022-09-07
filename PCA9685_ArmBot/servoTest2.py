@@ -60,23 +60,23 @@ def test1():
     snd_angl = 30
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.1)
+    time.sleep(1)
 
 
     snd_angl = 110
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.1)
+    time.sleep(1)
 
     snd_angl = 70
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.1)
+    time.sleep(1)
 
     snd_angl = 90
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.1)
+    time.sleep(1)
 
 
     pca.servo[srvo_num].angle=None #disable channel
@@ -88,16 +88,16 @@ def test2():
     for srvo_num in range(nbPCAServo):
         print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
         pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.1)
+    time.sleep(1)
 
     # Angle
     snd_angl = 85
     for srvo_num in range(nbPCAServo):
         print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
         pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.1)
+    time.sleep(1)
     pca.servo[srvo_num].angle=None #disable channel
-    time.sleep(0.5)
+    time.sleep(1)
     print("Done")
 
 
