@@ -28,11 +28,20 @@ def init():
 # function main 
 def main():
     
-    test1()
+    # test1()
+    # sleep(5)
+    test2()
     sleep(5)
-    # test2()
+    test3()
+    # sleep(5)
+    
     # pcaScenario();
 
+def pcaCleanup():
+    for srvo_num in range(nbPCAServo):
+        pca.servo[srvo_num].angle=None #disable channel
+    time.sleep(1)
+    print("Clean")
 
 # function pcaScenario 
 def pcaScenario():
@@ -79,7 +88,7 @@ def test1():
     time.sleep(1)
 
 
-    pca.servo[srvo_num].angle=None #disable channel
+    pcaCleanup()
     time.sleep(0.5)
 
 def test2():
@@ -96,10 +105,32 @@ def test2():
         print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
         pca.servo[srvo_num].angle = snd_angl
     time.sleep(1)
-    for srvo_num in range(nbPCAServo):
-        pca.servo[srvo_num].angle=None #disable channel
-    time.sleep(1)
+    pcaCleanup()
     print("Done")
+
+def test3():
+    """Declare stiff arm"""
+    pca.servo[0].angle = None
+    pca.servo[1].angle = None
+    pca.servo[2].angle = None
+    pca.servo[3].angle = None
+    pca.servo[4].angle = None
+    pca.servo[5].angle = None
+    pca.servo[6].angle = None
+    pca.servo[7].angle = None
+    pca.servo[8].angle = None
+    pca.servo[9].angle = None
+    pca.servo[10].angle = None
+    pca.servo[11].angle = None
+    pca.servo[12].angle = None
+    pca.servo[13].angle = None
+    pca.servo[14].angle = None
+    pca.servo[15].angle = None
+    time.sleep(1)
+    pcaCleanup()
+    print("Done")
+
+
 
 
 if __name__ == '__main__':
