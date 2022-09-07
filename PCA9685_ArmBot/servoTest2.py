@@ -120,8 +120,8 @@ def test2():
 def test3():
     """Declare stiff arm"""
 
-    # Wrist Rotation
-    set_servo_angle(0,160)
+    # Wrist Rotation (Lower numbers rotate to bots left)
+    set_servo_angle(0,100)
     
     # Lower Elbow (lower numbers lifts up)
     set_servo_angle(1,160)
@@ -148,7 +148,7 @@ def test3():
     set_servo_angle(13)
     set_servo_angle(14)
     set_servo_angle(15)
-    time.sleep(1)
+    time.sleep(5)
     pcaCleanup()
     print("Done")
 
