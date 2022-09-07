@@ -29,7 +29,7 @@ def init():
 def main():
     
     test1()
-    sleep(5)
+    # sleep(5)
     # pcaScenario();
 
 
@@ -56,28 +56,32 @@ def test1():
     srvo_num = 1
 
     # Angle
-    snd_angl = 70
+    # snd_angl = 70
     
-    for i in range(1,50):
-        print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
-        pca.servo[srvo_num].angle = snd_angl
-        time.sleep(0.01)
+    # for i in range(1,50):
+    #     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
+    #     pca.servo[srvo_num].angle = snd_angl
+    #     time.sleep(0.01)
 
 
     snd_angl = 110
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.01)
+    time.sleep(0.1)
 
     snd_angl = 70
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.01)
+    time.sleep(0.1)
 
     snd_angl = 110
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.01)
+    time.sleep(0.1)
+
+    
+    pca.servo[i].angle=None #disable channel
+    time.sleep(0.5)
 
 
 if __name__ == '__main__':
