@@ -146,7 +146,7 @@ def test3():
     set_servo_angle(5, 140)
 
     base_rotation = 100
-    for each in range(20)
+    for each in range(20):
         base_rotation = set_servo_angle(3, base_rotation+2)
         print("Base: "+base_rotation)
 
