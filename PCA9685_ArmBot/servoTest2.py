@@ -130,13 +130,13 @@ def test3():
     set_servo_angle(2, 80)
 
     # Base Rotation (Lower numbers move to Bots right)
-    set_servo_angle(3, 80)
+    set_servo_angle(3, 90)
 
     # Grip Hand (Lower numbers open grippers)
     set_servo_angle(4, 80)
 
     # Base Shoulder (lower numbers extend arm away from bot)
-    set_servo_angle(5, 115)
+    set_servo_angle(5, 155)
 
     set_servo_angle(6)
     set_servo_angle(7)
