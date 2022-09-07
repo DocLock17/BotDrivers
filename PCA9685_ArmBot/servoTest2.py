@@ -53,7 +53,7 @@ def test1():
          We will start with sending one servo an angle or two."""
 
     # Servo number 
-    srvo_num = 1
+    srvo_num = 0
 
     # Angle
     # snd_angl = 70
@@ -67,17 +67,17 @@ def test1():
     snd_angl = 110
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.1)
+    time.sleep(0.5)
 
     snd_angl = 70
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.1)
+    time.sleep(0.5)
 
     snd_angl = 110
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
-    time.sleep(0.1)
+    time.sleep(0.5)
 
 
     pca.servo[srvo_num].angle=None #disable channel
