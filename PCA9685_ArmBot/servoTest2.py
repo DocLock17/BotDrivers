@@ -40,9 +40,9 @@ def set_servo_angle(srvo_num, snd_angl=None): #disable channel if no angle
 # function main 
 def main():
     
-    # test1()
+    test1()
     # sleep(5)
-    test2()
+    # test2()
     sleep(5)
     test3()
     # sleep(5)
@@ -74,23 +74,23 @@ def test1():
     srvo_num = 0
 
     # Angle
-    snd_angl = 90
+    snd_angl = 30
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
     time.sleep(1)
 
-
-    snd_angl = 110
-    print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
-    pca.servo[srvo_num].angle = snd_angl
-    time.sleep(1)
 
     snd_angl = 70
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
     time.sleep(1)
 
-    snd_angl = 30
+    snd_angl = 90
+    print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
+    pca.servo[srvo_num].angle = snd_angl
+    time.sleep(1)
+
+    snd_angl = 110
     print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     pca.servo[srvo_num].angle = snd_angl
     time.sleep(1)
@@ -137,7 +137,7 @@ def test3():
 
     # Base Shoulder (lower numbers extend arm away from bot)
     set_servo_angle(5, 115)
-    
+
     set_servo_angle(6)
     set_servo_angle(7)
     set_servo_angle(8)
