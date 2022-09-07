@@ -79,8 +79,8 @@ def test1():
     pca.servo[srvo_num].angle = snd_angl
     time.sleep(0.1)
 
-    
-    pca.servo[i].angle=None #disable channel
+
+    pca.servo[srvo_num].angle=None #disable channel
     time.sleep(0.5)
 
 
