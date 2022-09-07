@@ -36,6 +36,7 @@ def set_servo_angle(srvo_num, snd_angl=None): #disable channel if no angle
         print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
     else:
         print("Disabling Channel to Servo {}".format(srvo_num))
+    time.sleep(0.01)
     return snd_angl
 
 # function main 
@@ -147,10 +148,24 @@ def test3():
     time.sleep(0.1)
 
     base_rotation = 100
-    for each in range(20):
+    for each in range(30):
         base_rotation = set_servo_angle(3, base_rotation+2)
         print("Base: "+str(base_rotation))
         time.sleep(0.1)
+    for each in range(30):
+        base_rotation = set_servo_angle(3, base_rotation-2)
+        print("Base: "+str(base_rotation))
+        time.sleep(0.1)
+    time.sleep(1)
+    for each in range(30):
+        base_rotation = set_servo_angle(3, base_rotation-2)
+        print("Base: "+str(base_rotation))
+        time.sleep(0.1)
+    for each in range(30):
+        base_rotation = set_servo_angle(3, base_rotation+2)
+        print("Base: "+str(base_rotation))
+        time.sleep(0.1)
+
 
     time.sleep(10)
     pcaCleanup()
