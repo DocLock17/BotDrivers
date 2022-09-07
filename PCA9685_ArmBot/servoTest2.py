@@ -96,7 +96,8 @@ def test2():
         print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
         pca.servo[srvo_num].angle = snd_angl
     time.sleep(1)
-    pca.servo[srvo_num].angle=None #disable channel
+    for srvo_num in range(nbPCAServo):
+        pca.servo[srvo_num].angle=None #disable channel
     time.sleep(1)
     print("Done")
 
