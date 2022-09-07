@@ -44,7 +44,11 @@ def main():
     # sleep(5)
     # test2()
     # sleep(5)
-    test3()
+    # test3()
+    base_posture(10)
+    scene1(10)
+    base_posture(10)
+    pcaCleanup()
     # sleep(5)
     
     # pcaScenario();
@@ -138,21 +142,57 @@ def test3():
     # Base Shoulder (lower numbers extend arm away from bot)
     set_servo_angle(5, 140)
 
-    set_servo_angle(6)
-    set_servo_angle(7)
-    set_servo_angle(8)
-    set_servo_angle(9)
-    set_servo_angle(10)
-    set_servo_angle(11)
-    set_servo_angle(12)
-    set_servo_angle(13)
-    set_servo_angle(14)
-    set_servo_angle(15)
     time.sleep(10)
     pcaCleanup()
     print("Done")
 
+def base_posture(hold_time=2):
+    """Declare stiff arm"""
+    print("Base Posture")
 
+    # Wrist Rotation (Lower numbers rotate to bots left)
+    set_servo_angle(0,125)
+    
+    # Lower Elbow (lower numbers lifts up) DIstal
+    set_servo_angle(1,175)
+
+    # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
+    set_servo_angle(2, 25)
+
+    # Base Rotation (Lower numbers move to Bots right)
+    set_servo_angle(3, 100)
+
+    # Grip Hand (Lower numbers open grippers)
+    set_servo_angle(4, 80)
+
+    # Base Shoulder (lower numbers extend arm away from bot)
+    set_servo_angle(5, 140)
+
+    time.sleep(hold_time)
+
+
+def scene1(hold_time=2):
+    """Declare stiff arm"""
+    print("Scene 1")
+    # Wrist Rotation (Lower numbers rotate to bots left)
+    set_servo_angle(0,125)
+    
+    # Lower Elbow (lower numbers lifts up) DIstal
+    set_servo_angle(1,180)
+
+    # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
+    set_servo_angle(2, 55)
+
+    # Base Rotation (Lower numbers move to Bots right)
+    set_servo_angle(3, 100)
+
+    # Grip Hand (Lower numbers open grippers)
+    set_servo_angle(4, 80)
+
+    # Base Shoulder (lower numbers extend arm away from bot)
+    set_servo_angle(5, 160)
+
+    time.sleep(hold_time)
 
 
 if __name__ == '__main__':
