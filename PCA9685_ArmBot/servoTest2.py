@@ -24,6 +24,18 @@ def init():
     for i in range(nbPCAServo):
         pca.servo[i].set_pulse_width_range(MIN_IMP[i] , MAX_IMP[i])
 
+def pcaCleanup():
+    for srvo_num in range(nbPCAServo):
+        set_servo_angle(srvo_num)
+    time.sleep(0.1)
+    print("Clean")
+
+def set_servo_angle(srvo_num, snd_angl=None): #disable channel if no angle
+    pca.servo[srvo_num].angle = snd_angl
+    if snd_angl != None:
+        print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
+    else:
+        print("Disabling Channel to Servo {}".format(srvo_num))
 
 # function main 
 def main():
@@ -37,11 +49,7 @@ def main():
     
     # pcaScenario();
 
-def pcaCleanup():
-    for srvo_num in range(nbPCAServo):
-        pca.servo[srvo_num].angle=None #disable channel
-    time.sleep(1)
-    print("Clean")
+
 
 # function pcaScenario 
 def pcaScenario():
@@ -108,25 +116,30 @@ def test2():
     pcaCleanup()
     print("Done")
 
+
 def test3():
     """Declare stiff arm"""
-    pca.servo[0].angle = None
-    pca.servo[1].angle = 110
-    print("Send angle 110 to Servo 1")
-    pca.servo[2].angle = None
-    pca.servo[3].angle = None
-    pca.servo[4].angle = None
-    pca.servo[5].angle = None
-    pca.servo[6].angle = None
-    pca.servo[7].angle = None
-    pca.servo[8].angle = None
-    pca.servo[9].angle = None
-    pca.servo[10].angle = None
-    pca.servo[11].angle = None
-    pca.servo[12].angle = None
-    pca.servo[13].angle = None
-    pca.servo[14].angle = None
-    pca.servo[15].angle = None
+
+    #Wrist Rotation
+    set_servo_angle(0,160)
+    
+    #Lower Elbow (lower numbers lifts up)
+    set_servo_angle(1,160)
+
+    set_servo_angle(2)
+    set_servo_angle(3)
+    set_servo_angle(4)
+    set_servo_angle(5)
+    set_servo_angle(6)
+    set_servo_angle(7)
+    set_servo_angle(8)
+    set_servo_angle(9)
+    set_servo_angle(10)
+    set_servo_angle(11)
+    set_servo_angle(12)
+    set_servo_angle(13)
+    set_servo_angle(14)
+    set_servo_angle(15)
     time.sleep(1)
     pcaCleanup()
     print("Done")
