@@ -4,7 +4,7 @@
 #Libraries
 import time    #https://docs.python.org/fr/3/library/time.html
 from adafruit_servokit import ServoKit    #https://circuitpython.readthedocs.io/projects/servokit/en/latest/
-
+from time import sleep
 #Constants
 nbPCAServo=16 
 
@@ -27,8 +27,10 @@ def init():
 
 # function main 
 def main():
-    # pcaScenario();
+    
     test1()
+    sleep(5)
+    # pcaScenario();
 
 
 # function pcaScenario 
@@ -55,8 +57,9 @@ def test1():
 
     # Angle
     snd_angl = 70
-    print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
+    
     for i in range(1,50):
+        print("Send angle {} to Servo {}".format(snd_angl,srvo_num))
         pca.servo[srvo_num].angle = snd_angl
         time.sleep(0.01)
 
