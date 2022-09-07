@@ -148,7 +148,7 @@ def test3():
     base_rotation = 100
     for each in range(20):
         base_rotation = set_servo_angle(3, base_rotation+2)
-        print("Base: "+base_rotation)
+        print("Base: "+str(base_rotation))
 
     time.sleep(10)
     pcaCleanup()
