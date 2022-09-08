@@ -8,12 +8,23 @@ from time import sleep
 #Constants
 nbPCAServo=16 
 
-#need to get the pulse width range of the MG996R
-#Parameters
-MIN_IMP  =[500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
-MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500]
+# #MG996R Parameters Wide Defaults
+# MIN_IMP  =[750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750]
+# MAX_IMP  =[2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200]
+# MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
+
+#MG996R Parameters Specific Defaults
+MIN_IMP  =[780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780]
+MAX_IMP  =[2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190]
 MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
+
+# #Parameters
+# MIN_IMP  =[500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
+# MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500]
+# MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
 
 #Objects
 pca = ServoKit(channels=16)
@@ -125,6 +136,27 @@ def test2():
     print("Done")
 
 
+def flex_servo(servo_number, starting_rotation):
+    flexing_servo = servo_number
+    flexing_rotation = starting_rotation
+    for each in range(30):
+        flexing_rotation = set_servo_angle(flexing_servo, (flexing_rotation+2))
+        print("Flex: "+str(flexing_rotation))
+        time.sleep(0.1)
+    for each in range(30):
+        flexing_rotation = set_servo_angle(flexing_servo, (flexing_rotation-2))
+        print("Flex: "+str(flexing_rotation))
+        time.sleep(0.1)
+    time.sleep(1)
+    for each in range(30):
+        flexing_rotation = set_servo_angle(flexing_servo, (flexing_rotation-2))
+        print("Flex: "+str(flexing_rotation))
+        time.sleep(0.1)
+    for each in range(30):
+        flexing_rotation = set_servo_angle(flexing_servo, (flexing_rotation+2))
+        print("Flex: "+str(flexing_rotation))
+        time.sleep(0.1)
+
 def test3():
     """Declare stiff arm"""
     # Base Shoulder (lower numbers extend arm away from bot)
@@ -152,100 +184,82 @@ def test3():
     time.sleep(0.1)
 
 
-    base_rotation = 100
-    for each in range(30):
-        base_rotation = set_servo_angle(10, (base_rotation+2))
-        print("Base: "+str(base_rotation))
-        time.sleep(0.1)
-    for each in range(30):
-        base_rotation = set_servo_angle(10, (base_rotation-2))
-        print("Base: "+str(base_rotation))
-        time.sleep(0.1)
-    time.sleep(1)
-    for each in range(30):
-        base_rotation = set_servo_angle(10, (base_rotation-2))
-        print("Base: "+str(base_rotation))
-        time.sleep(0.1)
-    for each in range(30):
-        base_rotation = set_servo_angle(10, (base_rotation+2))
-        print("Base: "+str(base_rotation))
-        time.sleep(0.1)
-
-
+    flex_servo(10, 100)
+    flex_servo(0, 125)
     time.sleep(10)
     pcaCleanup()
     print("Done")
 
-def base_posture(hold_time=2):
-    """Declare stiff arm"""
-    print("Base Posture")
+# def base_posture(hold_time=2):
+#     """Declare stiff arm"""
+#     print("Base Posture")
 
-    # Wrist Rotation (Lower numbers rotate to bots left)
-    set_servo_angle(0,125)
+#     # Wrist Rotation (Lower numbers rotate to bots left)
+#     set_servo_angle(0,125)
     
-    # Lower Elbow (lower numbers lifts up) DIstal
-    set_servo_angle(1,175)
+#     # Lower Elbow (lower numbers lifts up) DIstal
+#     set_servo_angle(1,175)
 
-    # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-    set_servo_angle(8, 25)
+#     # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
+#     set_servo_angle(8, 25)
 
-    # Base Rotation (Lower numbers move to Bots right)
-    set_servo_angle(3, 100)
+#     # Base Rotation (Lower numbers move to Bots right)
+#     set_servo_angle(3, 100)
 
-    # Grip Hand (Lower numbers open grippers)
-    set_servo_angle(4, 80)
+#     # Grip Hand (Lower numbers open grippers)
+#     set_servo_angle(4, 80)
 
-    # Base Shoulder (lower numbers extend arm away from bot)
-    set_servo_angle(5, 140)
+#     # Base Shoulder (lower numbers extend arm away from bot)
+#     set_servo_angle(5, 140)
 
-    time.sleep(hold_time)
+#     time.sleep(hold_time)
 
 
-def scene1(hold_time=2):
-    """Declare stiff arm"""
-    print("Scene 1")
-    # Wrist Rotation (Lower numbers rotate to bots left)
-    set_servo_angle(0,125)
+# def scene1(hold_time=2):
+#     """Declare stiff arm"""
+#     print("Scene 1")
+#     # Wrist Rotation (Lower numbers rotate to bots left)
+#     set_servo_angle(0,125)
     
-    # Lower Elbow (lower numbers lifts up) DIstal
-    set_servo_angle(1,170)
+#     # Lower Elbow (lower numbers lifts up) DIstal
+#     set_servo_angle(1,170)
 
-    # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-    set_servo_angle(8, 15)
+#     # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
+#     set_servo_angle(8, 15)
 
-    # Base Rotation (Lower numbers move to Bots right)
-    set_servo_angle(3, 100)
+#     # Base Rotation (Lower numbers move to Bots right)
+#     set_servo_angle(3, 100)
 
-    # Grip Hand (Lower numbers open grippers)
-    set_servo_angle(4, 80)
+#     # Grip Hand (Lower numbers open grippers)
+#     set_servo_angle(4, 80)
 
-    # Base Shoulder (lower numbers extend arm away from bot)
-    set_servo_angle(5, 160)
+#     # Base Shoulder (lower numbers extend arm away from bot)
+#     set_servo_angle(5, 160)
 
-    time.sleep(hold_time)
+#     time.sleep(hold_time)
 
-def scene2(hold_time=2):
-    """Declare stiff arm"""
-    print("Scene 1")
-    # Wrist Rotation (Lower numbers rotate to bots left)
-    set_servo_angle(0,125)
+# def scene2(hold_time=2):
+#     """Declare stiff arm"""
+#     print("Scene 1")
+#     # Wrist Rotation (Lower numbers rotate to bots left)
+#     set_servo_angle(0,125)
     
-    # Lower Elbow (lower numbers lifts up) DIstal
-    set_servo_angle(1,160)
+#     # Lower Elbow (lower numbers lifts up) DIstal
+#     set_servo_angle(1,160)
 
-    # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-    set_servo_angle(8, 55)
+#     # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
+#     set_servo_angle(8, 55)
 
-    # Base Rotation (Lower numbers move to Bots right)
-    set_servo_angle(3, 100)
+#     # Base Rotation (Lower numbers move to Bots right)
+#     set_servo_angle(3, 100)
 
-    # Grip Hand (Lower numbers open grippers)
-    set_servo_angle(4, 80)
+#     # Grip Hand (Lower numbers open grippers)
+#     set_servo_angle(4, 80)
 
-    # Base Shoulder (lower numbers extend arm away from bot)
-    set_servo_angle(5, 120)
+#     # Base Shoulder (lower numbers extend arm away from bot)
+#     set_servo_angle(5, 120)
 
-    time.sleep(hold_time)
+#     time.sleep(hold_time)
 
 
 if __name__ == '__main__':
