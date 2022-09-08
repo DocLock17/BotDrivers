@@ -301,12 +301,13 @@ def base_posture(hold_time=2):
     set_servo_angle(5, 140)
     time.sleep(0.1)
 
-    # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-    set_servo_angle(8, 25)
-    time.sleep(0.1)
 
     # Lower Elbow (lower numbers lifts up) DIstal
     set_servo_angle(1,180)
+    time.sleep(0.1)
+
+    # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
+    set_servo_angle(8, 25)
     time.sleep(0.1)
 
     # Base Rotation (Lower numbers move to Bots right)
