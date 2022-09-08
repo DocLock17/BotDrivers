@@ -153,7 +153,7 @@ def test2():
 
 def move_to_angle(flexing_servo, starting_rotation, ending_rotation):
     flexing_rotation = starting_rotation
-    print(abs((starting_rotation-ending_rotation)/2))
+    print(int(abs((starting_rotation-ending_rotation)/2)))
     
     for each in range(int(abs((starting_rotation-ending_rotation)/2))):
         if flexing_rotation > 177:
