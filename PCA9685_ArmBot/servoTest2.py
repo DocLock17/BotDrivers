@@ -72,7 +72,7 @@ def main():
     base_posture(2)
     flex_servo(5, 140)
     base_posture(10)
-    
+
     move_to_angle(10, 100, 130)
     
     # scene1(10)
@@ -153,9 +153,9 @@ def test2():
 
 def move_to_angle(flexing_servo, starting_rotation, ending_rotation):
     flexing_rotation = starting_rotation
-    print((starting_rotation-ending_rotation)/2)
+    print((int(starting_rotation-ending_rotation)/2))
     
-    for each in range((starting_rotation-ending_rotation)/2):
+    for each in range((int(starting_rotation-ending_rotation)/2)):
         if flexing_rotation > 177:
             flexing_rotation = 177
         # if flexing_rotation > 267:
