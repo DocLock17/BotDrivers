@@ -63,35 +63,38 @@ def main():
     # test2()
     # sleep(5)
     # test3()
-    base_posture(3)
+    
     # sleep(2)
     # flex_servo(10, 100)
+    base_posture(3)
+    move_to_angle(1, 175, 130)
     sleep(2)
-    move_to_angle(10, 100, 130)
-    sleep(1)
-    move_to_angle(10, 130, 70)
-    sleep(1)
-    move_to_angle(10, 70, 100)
-    sleep(1)
-
-    # base_posture(2)
-    # flex_servo(0, 125)
-
-    # base_posture(2)
-    # flex_servo(8, 25)
-
-    # base_posture(2)
-    # flex_servo(5, 140)
+    move_to_angle(8, 25, 50)
+    sleep(2)
+    move_to_angle(5, 140, 110)
 
     base_posture(10)
+ 
 
     # move_to_angle(10, 100, 130)
+    # sleep(1)
+    # move_to_angle(10, 130, 70)
+    # sleep(1)
+    # move_to_angle(10, 70, 100)
+    # sleep(1)
+    # base_posture(2)
+    # flex_servo(0, 125)
+    # base_posture(2)
+    # flex_servo(8, 25)
+    # base_posture(2)
+    # flex_servo(5, 140)
+    # move_to_angle(10, 100, 130)
     # sleep(2)
-    
     # scene1(10)
     # base_posture(10)
     # scene2(10)
     # base_posture(10)
+
     pcaCleanup()
     sleep(1)
     
