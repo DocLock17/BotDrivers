@@ -64,8 +64,8 @@ def main():
     # sleep(5)
     # test3()
     base_posture(3)
-    sleep(2)
-    flex_servo(10, 100)
+    # sleep(2)
+    # flex_servo(10, 100)
     sleep(2)
     move_to_angle(10, 100, 130)
     sleep(1)
@@ -166,7 +166,15 @@ def test2():
 
 def move_to_angle(flexing_servo, starting_rotation, ending_rotation):
     flexing_rotation = starting_rotation
-    print(int(abs((starting_rotation-ending_rotation)/2)))
+    rot_diff = int((starting_rotation-ending_rotation)/2)
+    if rot_diff < 0:
+        print("Negative")
+        rot_change = -2
+    if rot_diff > 0:
+        print("positive")
+        rot_change = 2
+    print(int((starting_rotation-ending_rotation)/2))
+    # print(int(abs((starting_rotation-ending_rotation)/2)))
     
     for each in range(int(abs((starting_rotation-ending_rotation)/2))):
         if flexing_rotation > 177:
@@ -175,8 +183,8 @@ def move_to_angle(flexing_servo, starting_rotation, ending_rotation):
         #     flexing_rotation = 267
         if flexing_rotation < 3:
             flexing_rotation = 3
-        flexing_rotation = set_servo_angle(flexing_servo, (flexing_rotation+2))
-        print("Flex: "+str(flexing_rotation))
+        flexing_rotation = set_servo_angle(flexing_servo, (flexing_rotation+rot_change))
+        print("Setting Rotaion to: "+str(flexing_rotation))
         time.sleep(0.1)
 
 def flex_servo(servo_number, starting_rotation):
