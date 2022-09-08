@@ -95,8 +95,13 @@ def main():
     move_to_angle(5, 60, 30)
     sleep(.5)
     
-
+    move_to_angle(8, 105, 125)
+    sleep(.5)
+    
     move_to_angle(1, 135, 115)
+    sleep(.5)
+    
+    move_to_angle(5, 30, 20)
     sleep(.5)
 
     sleep(10)
