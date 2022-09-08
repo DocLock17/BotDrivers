@@ -280,7 +280,7 @@ def test3():
     time.sleep(0.1)
 
     # Base Rotation (Lower numbers move to Bots right)
-    set_servo_angle(10, 100)
+    set_servo_angle(10, 110)
     time.sleep(0.1)
 
     # Wrist Rotation (Lower numbers rotate to bots left)
@@ -309,7 +309,7 @@ def base_posture(hold_time=2):
     time.sleep(0.1)
 
     # Base Rotation (Lower numbers move to Bots right)
-    set_servo_angle(10, 100)
+    set_servo_angle(10, 110)
     time.sleep(0.1)
 
     # Wrist Rotation (Lower numbers rotate to bots left)
