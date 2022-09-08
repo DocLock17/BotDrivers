@@ -41,4 +41,4 @@ def set_servo_angle(srvo_num, snd_angl=None): #disable channel if no angle
 if __name__ == '__main__':
     init()
     pcaCleanup()
-    sleep(5)
+    sleep(1)

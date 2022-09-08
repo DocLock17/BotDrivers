@@ -90,18 +90,18 @@ def main():
 
 
     print("Tag1")
-    move_to_angle(8, 85, 105)
+    move_to_angle(8, 85, 110)
     sleep(.5)
-    move_to_angle(5, 60, 30)
+    move_to_angle(5, 60, 35)
     sleep(.5)
     print("Tag2")    
-    move_to_angle(8, 105, 125)
+    move_to_angle(8, 110, 125)
     sleep(.5)
     print("Tag3")    
     move_to_angle(1, 135, 115)
     sleep(.5)
     print("Tag4")
-    move_to_angle(5, 30, 20)
+    move_to_angle(5, 35, 20)
     sleep(.5)
 
     move_to_angle(8, 125, 145)
