@@ -64,19 +64,24 @@ def main():
     # sleep(5)
     # test3()
     base_posture(3)
+    sleep(2)
     flex_servo(10, 100)
+    sleep(2)
     move_to_angle(10, 100, 130)
+    sleep(1)
     move_to_angle(10, 130, 70)
+    sleep(1)
     move_to_angle(10, 70, 100)
+    sleep(1)
+    
+    # base_posture(2)
+    # flex_servo(0, 125)
 
-    base_posture(2)
-    flex_servo(0, 125)
+    # base_posture(2)
+    # flex_servo(8, 25)
 
-    base_posture(2)
-    flex_servo(8, 25)
-
-    base_posture(2)
-    flex_servo(5, 140)
+    # base_posture(2)
+    # flex_servo(5, 140)
 
     base_posture(10)
 
