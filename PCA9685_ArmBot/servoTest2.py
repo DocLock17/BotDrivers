@@ -190,6 +190,8 @@ def test3():
 
     flex_servo(10, 100)
     flex_servo(0, 125)
+    flex_servo(8, 125)
+    flex_servo(5, 125)
     time.sleep(10)
     pcaCleanup()
     print("Done")
