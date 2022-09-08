@@ -73,7 +73,7 @@ def main():
     sleep(1)
     move_to_angle(10, 70, 100)
     sleep(1)
-    
+
     # base_posture(2)
     # flex_servo(0, 125)
 
@@ -85,8 +85,8 @@ def main():
 
     base_posture(10)
 
-    move_to_angle(10, 100, 130)
-    sleep(2)
+    # move_to_angle(10, 100, 130)
+    # sleep(2)
     
     # scene1(10)
     # base_posture(10)
