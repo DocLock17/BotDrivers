@@ -151,8 +151,8 @@ def flex_servo(servo_number, starting_rotation):
     for each in range(30):
         if flexing_rotation > 177:
             flexing_rotation = 177
-        if flexing_rotation < 3:
-            flexing_rotation = 3
+        if flexing_rotation < 5:
+            flexing_rotation = 5
         flexing_rotation = set_servo_angle(flexing_servo, (flexing_rotation+2))
         print("Flex: "+str(flexing_rotation))
         time.sleep(0.1)
