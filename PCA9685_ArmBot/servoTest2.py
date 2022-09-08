@@ -57,14 +57,23 @@ def main():
     # sleep(5)
     # test2()
     # sleep(5)
-    test3()
-    # base_posture(10)
+    # test3()
+    base_posture(3)
+    flex_servo(10, 100)
+    base_posture(2)
+    flex_servo(0, 125)
+    base_posture(2)
+    flex_servo(8, 25)
+    base_posture(2)
+    flex_servo(5, 140)
+    base_posture(10)
+    
     # scene1(10)
     # base_posture(10)
     # scene2(10)
     # base_posture(10)
     pcaCleanup()
-    # sleep(5)
+    sleep(1)
     
     # pcaScenario();
 
@@ -186,39 +195,33 @@ def test3():
     # Grip Hand (Lower numbers open grippers)
     set_servo_angle(4, 80)
     time.sleep(0.1)
-
-
-    flex_servo(10, 100)
-    flex_servo(0, 125)
-    flex_servo(8, 125)
-    flex_servo(5, 125)
     time.sleep(10)
     pcaCleanup()
     print("Done")
 
-# def base_posture(hold_time=2):
-#     """Declare stiff arm"""
-#     print("Base Posture")
+def base_posture(hold_time=2):
+    """Declare stiff arm"""
+    print("Base Posture")
 
-#     # Wrist Rotation (Lower numbers rotate to bots left)
-#     set_servo_angle(0,125)
+    # Wrist Rotation (Lower numbers rotate to bots left)
+    set_servo_angle(0,125)
     
-#     # Lower Elbow (lower numbers lifts up) DIstal
-#     set_servo_angle(1,175)
+    # Lower Elbow (lower numbers lifts up) DIstal
+    set_servo_angle(1,175)
 
-#     # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-#     set_servo_angle(8, 25)
+    # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
+    set_servo_angle(8, 25)
 
-#     # Base Rotation (Lower numbers move to Bots right)
-#     set_servo_angle(3, 100)
+    # Base Rotation (Lower numbers move to Bots right)
+    set_servo_angle(3, 100)
 
-#     # Grip Hand (Lower numbers open grippers)
-#     set_servo_angle(4, 80)
+    # Grip Hand (Lower numbers open grippers)
+    set_servo_angle(4, 80)
 
-#     # Base Shoulder (lower numbers extend arm away from bot)
-#     set_servo_angle(5, 140)
+    # Base Shoulder (lower numbers extend arm away from bot)
+    set_servo_angle(5, 140)
 
-#     time.sleep(hold_time)
+    time.sleep(hold_time)
 
 
 # def scene1(hold_time=2):
