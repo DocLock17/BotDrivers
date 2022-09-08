@@ -73,6 +73,8 @@ def main():
     flex_servo(5, 140)
     base_posture(10)
     
+    move_to_angle(10, 100, 130)
+    
     # scene1(10)
     # base_posture(10)
     # scene2(10)
@@ -149,6 +151,20 @@ def test2():
     pcaCleanup()
     print("Done")
 
+def move_to_angle(flexing_servo, starting_rotation, ending_rotation):
+    flexing_rotation = starting_rotation
+    print((starting_rotation-ending_rotation)/2)
+    
+    for each in range((starting_rotation-ending_rotation)/2):
+        if flexing_rotation > 177:
+            flexing_rotation = 177
+        # if flexing_rotation > 267:
+        #     flexing_rotation = 267
+        if flexing_rotation < 3:
+            flexing_rotation = 3
+        flexing_rotation = set_servo_angle(flexing_servo, (flexing_rotation+2))
+        print("Flex: "+str(flexing_rotation))
+        time.sleep(0.1)
 
 def flex_servo(servo_number, starting_rotation):
     flexing_servo = servo_number
