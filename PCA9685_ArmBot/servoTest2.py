@@ -65,15 +65,23 @@ def main():
     # test3()
     base_posture(3)
     flex_servo(10, 100)
+    move_to_angle(10, 100, 130)
+    move_to_angle(10, 130, 70)
+    move_to_angle(10, 70, 100)
+
     base_posture(2)
     flex_servo(0, 125)
+
     base_posture(2)
     flex_servo(8, 25)
+
     base_posture(2)
     flex_servo(5, 140)
+
     base_posture(10)
 
     move_to_angle(10, 100, 130)
+    sleep(2)
     
     # scene1(10)
     # base_posture(10)
