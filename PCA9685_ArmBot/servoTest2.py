@@ -68,25 +68,35 @@ def main():
     # flex_servo(10, 100)
     base_posture(3)
 
-    move_to_angle(1, 175, 155)
-    sleep(.5)
+    
     move_to_angle(8, 25, 45)
     sleep(.5)
     move_to_angle(5, 140, 120)
     sleep(.5)
 
-    move_to_angle(1, 155, 135)
-    sleep(.5)
     move_to_angle(8, 45, 65)
     sleep(.5)
     move_to_angle(5, 120, 100)
     sleep(.5)
-
-    move_to_angle(1, 135, 115)
+    move_to_angle(1, 175, 155)
     sleep(.5)
+
     move_to_angle(8, 65, 85)
     sleep(.5)
     move_to_angle(5, 100, 80)
+    sleep(.5)
+    move_to_angle(1, 155, 135)
+    sleep(.5)
+
+
+
+    move_to_angle(8, 85, 105)
+    sleep(.5)
+    move_to_angle(5, 80, 60)
+    sleep(.5)
+    
+
+    move_to_angle(1, 135, 115)
     sleep(.5)
 
     base_posture(10)
