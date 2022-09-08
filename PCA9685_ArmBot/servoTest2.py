@@ -78,7 +78,7 @@ def main():
     sleep(.5)
     move_to_angle(5, 115, 90)
     sleep(.5)
-    move_to_angle(1, 175, 155)
+    move_to_angle(1, 180, 155)
     sleep(.5)
 
     move_to_angle(8, 65, 85)
@@ -305,7 +305,7 @@ def base_posture(hold_time=2):
     time.sleep(0.1)
 
     # Lower Elbow (lower numbers lifts up) DIstal
-    set_servo_angle(1,175)
+    set_servo_angle(1,180)
     time.sleep(0.1)
 
     # Base Rotation (Lower numbers move to Bots right)
