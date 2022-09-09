@@ -146,7 +146,7 @@ class ArmBot:
         # Base Rotation (Lower numbers move to Bots right)
         self.state["medial_rotater"]["next_angle"] = 150 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
-        self.state["distal_rotater"]["next_angle"] = 105 # 0
+        self.state["distal_rotater"]["next_angle"] = 135 # 0
         # Grip
         self.state["distal_grip"]["next_angle"] = 80 # 4
         self.rectify_angle("hard")
@@ -163,7 +163,7 @@ class ArmBot:
         # Base Rotation (Lower numbers move to Bots right)
         self.state["medial_rotater"]["next_angle"] = 150 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
-        self.state["distal_rotater"]["next_angle"] = 105 # 0
+        self.state["distal_rotater"]["next_angle"] = 135 # 0
         # Grip
         self.state["distal_grip"]["next_angle"] = 80 # 4
         self.rectify_angle()
@@ -180,7 +180,7 @@ class ArmBot:
         # Base Rotation (Lower numbers move to Bots right)
         self.state["medial_rotater"]["next_angle"] = 150 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
-        self.state["distal_rotater"]["next_angle"] = 105 # 0
+        self.state["distal_rotater"]["next_angle"] = 135 # 0
         # Grip
         self.state["distal_grip"]["next_angle"] = 80 # 4
         self.rectify_angle()
