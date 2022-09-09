@@ -74,6 +74,7 @@ class ArmBot:
                 for each in self.state:
                     if self.state[each]["channel_assingnment"] == each:
                         self.pca.servo[i].set_pulse_width_range(self.state[each]["MIN_IMP"], self.state[each]["MAX_IMP"])
+                        self.pca.servo[i].actuation_range = self.state[each]["MAX_ANG"]
                     else:
                         self.pca.servo[i].set_pulse_width_range(500, 2500)
 
