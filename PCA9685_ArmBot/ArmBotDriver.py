@@ -225,6 +225,8 @@ if __name__ == '__main__':
     print("8")
     AB.flex_servo(30, 1, "medial_rotater")
     print("Done")
+    AB.pcaCleanup()
+    print("Clean")
 
 
 
