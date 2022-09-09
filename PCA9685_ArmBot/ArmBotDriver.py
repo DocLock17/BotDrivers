@@ -312,7 +312,7 @@ if __name__ == '__main__':
         print("8b")
         AB.step_servo(-20, "distal_flexor")
         time.sleep(1)
-        AB.set_posture(hold_time=2, distal_flexor = 50)
+        AB.set_posture(hold_time=2, distal_flexor = 20)
         time.sleep(1)
 
 
