@@ -14,9 +14,9 @@ class ArmBot:
         self.pca = ServoKit(channels=16)
         self.nbPCAServo = 16
         # self.set_delay = 0.005 # Very Fast like TOO FAST
-        # self.set_delay = 0.007
+        self.set_delay = 0.007
         # self.set_delay = 0.01 # Smooth
-        self.set_delay = 0.013
+        # self.set_delay = 0.013 # Good not exactly gentle or slow though
         # self.set_delay = 0.015 # Slow and gentle but a bit rockety
         # self.set_delay = 0.02 # TOO ROUGH FOR BOT TO LAST 
 
