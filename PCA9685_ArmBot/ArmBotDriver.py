@@ -275,7 +275,7 @@ if __name__ == '__main__':
         print("3")
         AB.flex_servo(40, 1, 8)
         print("4")
-        AB.flex_servo(20, 1, servo_number=86, servo_name="distal_flexor")
+        AB.flex_servo(20, 1, servo_number=86, servo_name="medial_extensor")
         print("5")
         AB.flex_servo(20, 1, servo_name="distal_rotater")
         print("6")
