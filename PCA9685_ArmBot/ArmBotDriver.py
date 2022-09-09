@@ -14,27 +14,6 @@ class ArmBot:
         self.pca = ServoKit(channels=16)
         self.nbPCAServo = 16
 
-        # # MG996R Parameters Specific Defaults
-        self.MIN_IMP  = [780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780]
-        self.MAX_IMP  = [2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190]
-        self.MIN_ANG  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        self.MAX_ANG  = [180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
-
-        # # MG996R Parameters Wide Defaults
-        # self.MIN_IMP  =[750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750]
-        # self.MAX_IMP  =[2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200]
-        # self.MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        # self.MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
-
-        # # Base Parameters
-        # self.MIN_IMP  =[500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
-        # self.MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500]
-        # self.MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        # self.MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
-
-        for i in range(self.nbPCAServo):
-            self.pca.servo[i].set_pulse_width_range(self.MIN_IMP[i] , self.MAX_IMP[i])
-        
         self.state = { "medial_rotater":{"motor_name": "medial_rotater",
                                           "channel_assingnment":medial_rotater,
                                           "state_angle":0,
@@ -84,6 +63,13 @@ class ArmBot:
                                          "MIN_ANG":0,
                                          "MAX_ANG":180}
                     }
+
+        for i in range(self.nbPCAServo):
+                for each in self.state:
+                    if self.state[each]["channel_assingnment"] == each:
+                        self.pca.servo[i].set_pulse_width_range(self.state[each]["MIN_IMP"], self.state[each]["MAX_IMP"])
+                    else:
+                        self.pca.servo[i].set_pulse_width_range(500, 2500)
 
 
     def set_servo_angle(self, srvo_num, snd_angl=None): #disable channel if no angle
@@ -239,3 +225,26 @@ if __name__ == '__main__':
     print("8")
     AB.flex_servo(30, 1, "medial_rotater")
     print("Done")
+
+
+
+
+
+# Notes
+# # # MG996R Parameters Specific Defaults
+# self.MIN_IMP  = [780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780, 780]
+# self.MAX_IMP  = [2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190, 2190]
+# self.MIN_ANG  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# self.MAX_ANG  = [180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
+
+# # MG996R Parameters Wide Defaults
+# self.MIN_IMP  =[750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750, 750]
+# self.MAX_IMP  =[2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200]
+# self.MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# self.MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
+
+# # Base Parameters
+# self.MIN_IMP  =[500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
+# self.MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500]
+# self.MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# self.MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
