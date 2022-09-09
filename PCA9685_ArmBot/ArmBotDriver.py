@@ -190,19 +190,23 @@ class ArmBot:
         if servo_number != 86:
             for each in self.state:
                 if self.state[each]["channel_assingnment"] == servo_number:
+                    print(self.state[each]["state_angle"]+flex_intensity)
                     self.state[each]["next_angle"] = (self.state[each]["state_angle"]+flex_intensity)
                     self.rectify_angle()
                     time.sleep(hold_time)
 
                     self.state[each]["next_angle"] = (self.state[each]["state_angle"]-flex_intensity)
+                    print(self.state[each]["state_angle"]-flex_intensity)
                     self.rectify_angle()
                     time.sleep(hold_time)
                     
                     self.state[each]["next_angle"] = (self.state[each]["state_angle"]-flex_intensity)
+                    print(self.state[each]["state_angle"]-flex_intensity)
                     self.rectify_angle()
                     time.sleep(hold_time)
 
                     self.state[each]["next_angle"] = (self.state[each]["state_angle"]+flex_intensity)
+                    print(self.state[each]["state_angle"]+flex_intensity)
                     self.rectify_angle()
                     time.sleep(hold_time)
 
