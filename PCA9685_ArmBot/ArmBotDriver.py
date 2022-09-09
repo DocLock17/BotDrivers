@@ -43,7 +43,7 @@ class ArmBot:
                                          "MIN_IMP":780,
                                          "MAX_IMP":2190,
                                          "MIN_ANG":0,
-                                         "MAX_ANG":180},
+                                         "MAX_ANG":270},
                       "distal_flexor":  {"motor_name": "distal_flexor",
                                          "channel_assingnment":distal_flexor,
                                          "state_angle":0,
@@ -174,7 +174,7 @@ class ArmBot:
         # Base Shoulder (lower numbers extend arm away from bot)
         self.state["medial_extensor"]["next_angle"] = 205 # 5
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-        self.state["medial_flexor"]["next_angle"] = 36 # 8
+        self.state["medial_flexor"]["next_angle"] = 65 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
         self.state["distal_flexor"]["next_angle"] = 270 # 1
         # Base Rotation (Lower numbers move to Bots right)
