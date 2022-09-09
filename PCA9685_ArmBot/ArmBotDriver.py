@@ -186,13 +186,47 @@ class ArmBot:
         self.rectify_angle()
         time.sleep(hold_time)
 
+    def set_posture(self, hold_time=2, \
+        medial_extensor = self.state["medial_extensor"]["state_angle"], \
+        medial_flexor = self.state["medial_flexor"]["state_angle"], \
+        distal_flexor = self.state["distal_flexor"]["state_angle"], \
+        medial_rotater = self.state["medial_rotater"]["state_angle"], \
+        distal_rotater = self.state["distal_rotater"]["state_angle"], \
+        distal_grip = self.state["distal_grip"]["state_angle"]):
+        """Declare stiff arm"""
+        # Base Shoulder (lower numbers extend arm away from bot)
+        self.state["medial_extensor"]["next_angle"] = medial_extensor
+        # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
+        self.state["medial_flexor"]["next_angle"] = medial_flexor
+        # Lower Elbow (lower numbers lifts up) DIstal
+        self.state["distal_flexor"]["next_angle"] = distal_flexor
+        # Base Rotation (Lower numbers move to Bots right)
+        self.state["medial_rotater"]["next_angle"] = medial_rotater
+        # Wrist Rotation (Lower numbers rotate to bots left)
+        self.state["distal_rotater"]["next_angle"] = distal_rotater
+        # Grip
+        self.state["distal_grip"]["next_angle"] = distal_grip
+        self.rectify_angle()
+        time.sleep(hold_time)
+
+    def step_servo(self, step, servo_number=86, servo_name=""):
+        if servo_number != 86:
+            for each in self.state:
+                if self.state[each]["channel_assingnment"] == servo_number:
+                    self.state[each]["next_angle"] = (self.state[each]["state_angle"]+step)
+                    print(self.state[each]["state_angle"]+step)
+                    self.rectify_angle("hard")
+        elif servo_name != "":
+            self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]+step)
+            print((self.state[servo_name]["state_angle"]+step))
+            self.rectify_angle("hard")
 
     def flex_servo(self, flex_intensity, hold_time, servo_number=86, servo_name=""):
         if servo_number != 86:
             for each in self.state:
                 if self.state[each]["channel_assingnment"] == servo_number:
-                    print(self.state[each]["state_angle"]+flex_intensity)
                     self.state[each]["next_angle"] = (self.state[each]["state_angle"]+flex_intensity)
+                    print(self.state[each]["state_angle"]+flex_intensity)
                     self.rectify_angle()
                     time.sleep(hold_time)
 
@@ -257,6 +291,28 @@ if __name__ == '__main__':
         AB.flex_servo(90, 1, servo_name="medial_rotater")
         print("8")
         AB.flex_servo(100, 1, "medial_rotater")
+        print("Beginning Step Test")
+        time.sleep(2)
+
+
+        print("1b")
+        AB.step_servo(-5, servo_number=0, servo_name="")
+        print("2b")
+        AB.step_servo(5, servo_number=10)
+        print("3b")
+        AB.step_servo(10, 10)
+        print("4b")
+        AB.step_servo(-10, servo_number=86, servo_name="medial_rotater")
+        print("5b")
+        AB.step_servo(-15, servo_name="medial_rotater")
+        print("6b")
+        AB.step_servo(15, 86, servo_name="medial_rotater")
+        print("7b")
+        AB.step_servo(20, servo_name="medial_rotater")
+        print("8b")
+        AB.step_servo(-20, "medial_rotater")
+
+
         print("Shutting down . . .")
         AB.shutdown_posture()
         print("Done")
