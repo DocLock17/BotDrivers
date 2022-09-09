@@ -163,7 +163,7 @@ class ArmBot:
         # Lower Elbow (lower numbers lifts up) DIstal
         self.state["distal_flexor"]["next_angle"] = 114 # 1
         # Base Rotation (Lower numbers move to Bots right)
-        self.state["medial_rotater"]["next_angle"] = 110 # 10
+        self.state["medial_rotater"]["next_angle"] = 145 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
         self.state["distal_rotater"]["next_angle"] = 124 # 0
         # Grip
@@ -180,7 +180,7 @@ class ArmBot:
         # Lower Elbow (lower numbers lifts up) DIstal
         self.state["distal_flexor"]["next_angle"] = 180 # 1
         # Base Rotation (Lower numbers move to Bots right)
-        self.state["medial_rotater"]["next_angle"] = 110 # 10
+        self.state["medial_rotater"]["next_angle"] = 145 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
         self.state["distal_rotater"]["next_angle"] = 124 # 0
         # Grip
