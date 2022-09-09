@@ -17,7 +17,7 @@ class ArmBot:
         # self.set_delay = 0.007 # quick but not destroy yourself fast
         # self.set_delay = 0.01 # Smooth
         # self.set_delay = 0.014 # Good not exactly gentle or slow though
-        self.set_delay = 0.017 # Slow and gentle but a bit rockety
+        self.set_delay = 0.018 # Slow and gentle but a bit rockety
         # self.set_delay = 0.02 # TOO ROUGH FOR BOT TO LAST 
 
         self.state = { "medial_rotater":{"motor_name": "medial_rotater",
@@ -27,7 +27,7 @@ class ArmBot:
                                           "MIN_IMP":780,
                                           "MAX_IMP":2190,
                                           "MIN_ANG":0,
-                                          "MAX_ANG":180},
+                                          "MAX_ANG":270},
                       "medial_extensor":{"motor_name": "medial_extensor",
                                           "channel_assingnment":medial_extensor,
                                           "state_angle":0,
