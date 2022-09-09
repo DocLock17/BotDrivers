@@ -140,7 +140,7 @@ class ArmBot:
         self.state["distal_rotater"]["next_angle"] = 125 # 0
         # Grip
         self.state["distal_grip"]["next_angle"] = 80 # 4
-        self.rectify_angle()
+        self.rectify_angle("hard")
         time.sleep(hold_time)
 
 
