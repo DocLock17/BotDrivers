@@ -13,6 +13,10 @@ class ArmBot:
         """Declare Arm Variables"""
         self.pca = ServoKit(channels=16)
         self.nbPCAServo = 16
+        # self.set_delay = 0.005 # Very Fast
+        # self.set_delay = 0.01 # Smooth
+        self.set_delay = 0.015
+        # self.set_delay = 0.02 # TOO ROUGH FOR BOT TO LAST 
 
         self.state = { "medial_rotater":{"motor_name": "medial_rotater",
                                           "channel_assingnment":medial_rotater,
@@ -81,14 +85,14 @@ class ArmBot:
             print("Send angle {} to Servo {} {}".format(snd_angl,srvo_num,))
         else:
             print("Disabling Channel to Servo {}".format(srvo_num))
-        time.sleep(0.01)
+        time.sleep(self.set_delay)
         return snd_angl
 
 
     def pcaCleanup(self):
         for srvo_num in range(self.nbPCAServo):
             self.set_servo_angle(srvo_num)
-        time.sleep(0.1)
+        time.sleep(self.set_delay)
         # print("Clean")
 
 
@@ -113,7 +117,8 @@ class ArmBot:
                         self.pca.servo[self.state[each]["channel_assingnment"]].angle = self.state[each]["state_angle"]+step_size
                         self.state[each]["state_angle"] = self.state[each]["state_angle"]+step_size
                 discrepancy_list = [x for x in self.state if self.state[x]["state_angle"] != self.state[x]["next_angle"]]
-                time.sleep(0.005)
+                time.sleep(self.set_delay) # Really fast
+
         if mode == 'hard':
             for each in self.state:
                  if self.state[each]["state_angle"] != self.state[each]["next_angle"]:
@@ -123,7 +128,7 @@ class ArmBot:
                         self.state[each]["next_angle"] = self.state[each]["MIN_ANG"]
                     self.pca.servo[self.state[each]["channel_assingnment"]].angle = self.state[each]["next_angle"]
                     self.state[each]["state_angle"] = self.state[each]["next_angle"]
-                    time.sleep(0.01)
+                    time.sleep(self.set_delay)
 
 
     def start_posture(self, hold_time=2):
