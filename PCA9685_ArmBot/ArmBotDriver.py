@@ -205,28 +205,31 @@ def flex_servo(self, flex_intensity, hold_time, servo_number=86, servo_name=""):
 if __name__ == '__main__':
     AB = ArmBot(medial_rotater=10, medial_extensor=5, medial_flexor=8, distal_flexor=1, distal_rotater=0, distal_grip=4)
 
-
-    AB.start_posture(5)
-    AB.base_posture(5)
-    print("1")
-    AB.flex_servo(30, 1, servo_number=10, servo_name="")
-    print("2")
-    AB.flex_servo(30, 1, servo_number=10)
-    print("3")
-    AB.flex_servo(30, 1, 10)
-    print("4")
-    AB.flex_servo(30, 1, servo_number=86, servo_name="medial_rotater")
-    print("5")
-    AB.flex_servo(30, 1, servo_name="medial_rotater")
-    print("6")
-    AB.flex_servo(30, 1, 86, servo_name="medial_rotater")
-    print("7")
-    AB.flex_servo(30, 1, servo_name="medial_rotater")
-    print("8")
-    AB.flex_servo(30, 1, "medial_rotater")
-    print("Done")
-    AB.pcaCleanup()
-    print("Clean")
+    try:
+        AB.start_posture(5)
+        AB.base_posture(5)
+        print("1")
+        AB.flex_servo(30, 1, servo_number=10, servo_name="")
+        print("2")
+        AB.flex_servo(30, 1, servo_number=10)
+        print("3")
+        AB.flex_servo(30, 1, 10)
+        print("4")
+        AB.flex_servo(30, 1, servo_number=86, servo_name="medial_rotater")
+        print("5")
+        AB.flex_servo(30, 1, servo_name="medial_rotater")
+        print("6")
+        AB.flex_servo(30, 1, 86, servo_name="medial_rotater")
+        print("7")
+        AB.flex_servo(30, 1, servo_name="medial_rotater")
+        print("8")
+        AB.flex_servo(30, 1, "medial_rotater")
+        print("Done")
+    except Exception as e:
+        print(e)
+    finally:
+        AB.pcaCleanup()
+        print("Clean")
 
 
 
