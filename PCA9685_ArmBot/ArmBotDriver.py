@@ -176,7 +176,7 @@ class ArmBot:
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
         self.state["medial_flexor"]["next_angle"] = 36 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
-        self.state["distal_flexor"]["next_angle"] = 235 # 1
+        self.state["distal_flexor"]["next_angle"] = 250 # 1
         # Base Rotation (Lower numbers move to Bots right)
         self.state["medial_rotater"]["next_angle"] = 150 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
@@ -289,22 +289,22 @@ if __name__ == '__main__':
 
 
         print("1b")
-        AB.step_servo(-5, servo_number=0, servo_name="")
+        AB.step_servo(-15, servo_number=0, servo_name="")
         time.sleep(.5)
         print("2b")
-        AB.step_servo(5, servo_number=10)
+        AB.step_servo(15, servo_number=10)
         time.sleep(.5)
         print("3b")
-        AB.step_servo(10, 5)
+        AB.step_servo(5, 5)
         time.sleep(.5)
         print("4b")
-        AB.step_servo(-10, servo_number=86, servo_name="medial_extensor")
+        AB.step_servo(-5, servo_number=86, servo_name="medial_extensor")
         time.sleep(.5)
         print("5b")
-        AB.step_servo(-15, servo_name="medial_flexor")
+        AB.step_servo(-10, servo_name="medial_flexor")
         time.sleep(.5)
         print("6b")
-        AB.step_servo(15, 86, servo_name="medial_flexor")
+        AB.step_servo(10, 86, servo_name="medial_flexor")
         time.sleep(.5)
         print("7b")
         AB.step_servo(20, servo_name="distal_flexor")
