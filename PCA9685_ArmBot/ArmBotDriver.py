@@ -186,26 +186,19 @@ class ArmBot:
         self.rectify_angle()
         time.sleep(hold_time)
 
-    def set_posture(self, hold_time=2, \
-        medial_extensor = self.state["medial_extensor"]["state_angle"], \
-        medial_flexor = self.state["medial_flexor"]["state_angle"], \
-        distal_flexor = self.state["distal_flexor"]["state_angle"], \
-        medial_rotater = self.state["medial_rotater"]["state_angle"], \
-        distal_rotater = self.state["distal_rotater"]["state_angle"], \
-        distal_grip = self.state["distal_grip"]["state_angle"]):
-        """Declare stiff arm"""
-        # Base Shoulder (lower numbers extend arm away from bot)
-        self.state["medial_extensor"]["next_angle"] = medial_extensor
-        # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-        self.state["medial_flexor"]["next_angle"] = medial_flexor
-        # Lower Elbow (lower numbers lifts up) DIstal
-        self.state["distal_flexor"]["next_angle"] = distal_flexor
-        # Base Rotation (Lower numbers move to Bots right)
-        self.state["medial_rotater"]["next_angle"] = medial_rotater
-        # Wrist Rotation (Lower numbers rotate to bots left)
-        self.state["distal_rotater"]["next_angle"] = distal_rotater
-        # Grip
-        self.state["distal_grip"]["next_angle"] = distal_grip
+    def set_posture(self, hold_time=2, medial_extensor = 86, medial_flexor = 86, distal_flexor = 86, medial_rotater = 86, distal_rotater = 86, distal_grip = 86):
+        if medial_extensor != 86:
+            self.state["medial_extensor"]["next_angle"] = medial_extensor
+        if medial_flexor != 86:
+            self.state["medial_flexor"]["next_angle"] = medial_flexor
+        if distal_flexor != 86:
+            self.state["distal_flexor"]["next_angle"] = distal_flexor
+        if medial_rotater != 86:
+            self.state["medial_rotater"]["next_angle"] = medial_rotater
+        if distal_rotater != 86
+            self.state["distal_rotater"]["next_angle"] = distal_rotater
+        if distal_grip != 86
+            self.state["distal_grip"]["next_angle"] = distal_grip
         self.rectify_angle()
         time.sleep(hold_time)
 
