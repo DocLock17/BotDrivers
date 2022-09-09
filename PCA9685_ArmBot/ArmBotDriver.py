@@ -16,8 +16,8 @@ class ArmBot:
         
         # self.set_delay = 0.007 # quick but not destroy yourself fast
         # self.set_delay = 0.01 # Smooth
-        # self.set_delay = 0.014 # Good not exactly gentle or slow though
-        self.set_delay = 0.018 # Slow and gentle but a bit rockety
+        self.set_delay = 0.014 # Good not exactly gentle or slow though
+        # self.set_delay = 0.017 # Slow and gentle but a bit rockety
         # self.set_delay = 0.02 # TOO ROUGH FOR BOT TO LAST 
 
         self.state = { "medial_rotater":{"motor_name": "medial_rotater",
@@ -59,7 +59,7 @@ class ArmBot:
                                          "MIN_IMP":780,
                                          "MAX_IMP":2190,
                                          "MIN_ANG":0,
-                                         "MAX_ANG":180},
+                                         "MAX_ANG":270},
                       "distal_grip":    {"motor_name": "distal_grip",
                                          "channel_assingnment":distal_grip,
                                          "state_angle":0,
@@ -71,9 +71,7 @@ class ArmBot:
                     }
 
         for i in range(self.nbPCAServo):
-            print(i)
             for each in self.state:
-                print(each)
                 if self.state[each]["channel_assingnment"] == i:
                     self.pca.servo[i].set_pulse_width_range(self.state[each]["MIN_IMP"], self.state[each]["MAX_IMP"])
                     self.pca.servo[i].actuation_range = self.state[each]["MAX_ANG"]
@@ -140,13 +138,13 @@ class ArmBot:
     def start_posture(self, hold_time=2):
         """Declare stiff arm"""
         # Base Shoulder (lower numbers extend arm away from bot)
-        self.state["medial_extensor"]["next_angle"] = 2 # 5
+        self.state["medial_extensor"]["next_angle"] = 4 # 5
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
         self.state["medial_flexor"]["next_angle"] = 144 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
         self.state["distal_flexor"]["next_angle"] = 114 # 1
         # Base Rotation (Lower numbers move to Bots right)
-        self.state["medial_rotater"]["next_angle"] = 110 # 10
+        self.state["medial_rotater"]["next_angle"] = 135 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
         self.state["distal_rotater"]["next_angle"] = 124 # 0
         # Grip
@@ -157,13 +155,13 @@ class ArmBot:
     def shutdown_posture(self, hold_time=2):
         """Declare stiff arm"""
         # Base Shoulder (lower numbers extend arm away from bot)
-        self.state["medial_extensor"]["next_angle"] = 2 # 5
+        self.state["medial_extensor"]["next_angle"] = 4 # 5
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
         self.state["medial_flexor"]["next_angle"] = 144 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
         self.state["distal_flexor"]["next_angle"] = 114 # 1
         # Base Rotation (Lower numbers move to Bots right)
-        self.state["medial_rotater"]["next_angle"] = 145 # 10
+        self.state["medial_rotater"]["next_angle"] = 135 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
         self.state["distal_rotater"]["next_angle"] = 124 # 0
         # Grip
@@ -180,9 +178,9 @@ class ArmBot:
         # Lower Elbow (lower numbers lifts up) DIstal
         self.state["distal_flexor"]["next_angle"] = 180 # 1
         # Base Rotation (Lower numbers move to Bots right)
-        self.state["medial_rotater"]["next_angle"] = 145 # 10
+        self.state["medial_rotater"]["next_angle"] = 135 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
-        self.state["distal_rotater"]["next_angle"] = 124 # 0
+        self.state["distal_rotater"]["next_angle"] = 135 # 0
         # Grip
         self.state["distal_grip"]["next_angle"] = 80 # 4
         self.rectify_angle()
@@ -244,7 +242,7 @@ if __name__ == '__main__':
         AB.start_posture(5)
         AB.base_posture(5)
         print("1")
-        AB.flex_servo(30, 1, servo_number=10, servo_name="")
+        AB.flex_servo(30, 1, servo_number=0, servo_name="")
         print("2")
         AB.flex_servo(40, 1, servo_number=10)
         print("3")
@@ -258,7 +256,7 @@ if __name__ == '__main__':
         print("7")
         AB.flex_servo(90, 1, servo_name="medial_rotater")
         print("8")
-        AB.flex_servo(30, 1, "medial_rotater")
+        AB.flex_servo(100, 1, "medial_rotater")
         print("Shutting down . . .")
         AB.shutdown_posture()
         print("Done")
