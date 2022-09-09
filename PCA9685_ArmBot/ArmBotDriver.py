@@ -51,7 +51,7 @@ class ArmBot:
                                          "MIN_IMP":780,
                                          "MAX_IMP":2190,
                                          "MIN_ANG":0,
-                                         "MAX_ANG":180},
+                                         "MAX_ANG":270},
                       "distal_rotater": {"motor_name": "distal_rotater",
                                          "channel_assingnment":distal_rotater,
                                          "state_angle":0,
@@ -172,7 +172,7 @@ class ArmBot:
     def base_posture(self, hold_time=2):
         """Declare stiff arm"""
         # Base Shoulder (lower numbers extend arm away from bot)
-        self.state["medial_extensor"]["next_angle"] = 200 # 5
+        self.state["medial_extensor"]["next_angle"] = 205 # 5
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
         self.state["medial_flexor"]["next_angle"] = 36 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
@@ -290,20 +290,28 @@ if __name__ == '__main__':
 
         print("1b")
         AB.step_servo(-5, servo_number=0, servo_name="")
+        time.sleep(.5)
         print("2b")
         AB.step_servo(5, servo_number=10)
+        time.sleep(.5)
         print("3b")
         AB.step_servo(10, 10)
+        time.sleep(.5)
         print("4b")
         AB.step_servo(-10, servo_number=86, servo_name="medial_rotater")
+        time.sleep(.5)
         print("5b")
         AB.step_servo(-15, servo_name="medial_rotater")
+        time.sleep(.5)
         print("6b")
         AB.step_servo(15, 86, servo_name="medial_rotater")
+        time.sleep(.5)
         print("7b")
         AB.step_servo(20, servo_name="medial_rotater")
+        time.sleep(.5)
         print("8b")
         AB.step_servo(-20, "medial_rotater")
+        time.sleep(.5)
 
 
         print("Shutting down . . .")
