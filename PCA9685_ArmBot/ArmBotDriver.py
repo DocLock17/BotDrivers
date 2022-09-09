@@ -113,7 +113,7 @@ class ArmBot:
                         self.pca.servo[self.state[each]["channel_assingnment"]].angle = self.state[each]["state_angle"]+step_size
                         self.state[each]["state_angle"] = self.state[each]["state_angle"]+step_size
                 discrepancy_list = [x for x in self.state if self.state[x]["state_angle"] != self.state[x]["next_angle"]]
-                time.sleep(0.01)
+                time.sleep(0.005)
         if mode == 'hard':
             for each in self.state:
                  if self.state[each]["state_angle"] != self.state[each]["next_angle"]:
