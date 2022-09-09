@@ -143,6 +143,22 @@ class ArmBot:
         self.rectify_angle("hard")
         time.sleep(hold_time)
 
+    def shutdown_posture(self, hold_time=2):
+        """Declare stiff arm"""
+        # Base Shoulder (lower numbers extend arm away from bot)
+        self.state["medial_extensor"]["next_angle"] = 2 # 5
+        # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
+        self.state["medial_flexor"]["next_angle"] = 144 # 8
+        # Lower Elbow (lower numbers lifts up) DIstal
+        self.state["distal_flexor"]["next_angle"] = 114 # 1
+        # Base Rotation (Lower numbers move to Bots right)
+        self.state["medial_rotater"]["next_angle"] = 110 # 10
+        # Wrist Rotation (Lower numbers rotate to bots left)
+        self.state["distal_rotater"]["next_angle"] = 125 # 0
+        # Grip
+        self.state["distal_grip"]["next_angle"] = 80 # 4
+        self.rectify_angle()
+        time.sleep(hold_time)
 
     def base_posture(self, hold_time=2):
         """Declare stiff arm"""
@@ -224,6 +240,8 @@ if __name__ == '__main__':
         AB.flex_servo(30, 1, servo_name="medial_rotater")
         print("8")
         AB.flex_servo(30, 1, "medial_rotater")
+        print("Shutting down . . .")
+        AB.shutdown_posture()
         print("Done")
     except Exception as e:
         print(e)
