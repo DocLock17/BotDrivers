@@ -212,18 +212,22 @@ class ArmBot:
 
         elif servo_name != "":
             self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]+flex_intensity)
+            print((self.state[servo_name]["state_angle"]+flex_intensity))
             self.rectify_angle()
             time.sleep(hold_time)
 
             self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]-flex_intensity)
+            print((self.state[servo_name]["state_angle"]-flex_intensity))
             self.rectify_angle()
             time.sleep(hold_time)
 
             self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]-flex_intensity)
+            print((self.state[servo_name]["state_angle"]-flex_intensity))
             self.rectify_angle()
             time.sleep(hold_time)
 
             self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]+flex_intensity)
+            print((self.state[servo_name]["state_angle"]+flex_intensity))
             self.rectify_angle()
             time.sleep(hold_time)
 
