@@ -314,7 +314,10 @@ if __name__ == '__main__':
         time.sleep(3)
         AB.set_posture(hold_time=2, distal_flexor = 0)
         time.sleep(1)
-
+        AB.set_posture(hold_time=2, medial_rotater = 30)
+        time.sleep(1)
+        AB.set_posture(hold_time=2, medial_extensor = 190)
+        time.sleep(1)
 
         print("Shutting down . . .")
         AB.shutdown_posture()
