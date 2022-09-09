@@ -89,7 +89,7 @@ class ArmBot:
         for srvo_num in range(self.nbPCAServo):
             self.set_servo_angle(srvo_num)
         time.sleep(0.1)
-        print("Clean")
+        # print("Clean")
 
 
     def rectify_angle(self, mode='soft', step_size=1): #disable channel if no angle
