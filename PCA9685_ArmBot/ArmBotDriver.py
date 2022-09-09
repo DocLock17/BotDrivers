@@ -195,9 +195,9 @@ class ArmBot:
             self.state["distal_flexor"]["next_angle"] = distal_flexor
         if medial_rotater != 86:
             self.state["medial_rotater"]["next_angle"] = medial_rotater
-        if distal_rotater != 86
+        if distal_rotater != 86:
             self.state["distal_rotater"]["next_angle"] = distal_rotater
-        if distal_grip != 86
+        if distal_grip != 86:
             self.state["distal_grip"]["next_angle"] = distal_grip
         self.rectify_angle()
         time.sleep(hold_time)
