@@ -17,7 +17,7 @@ class ArmBot:
         # self.set_delay = 0.007 # quick but not destroy yourself fast
         # self.set_delay = 0.01 # Smooth
         # self.set_delay = 0.014 # Good not exactly gentle or slow though
-        self.set_delay = 0.016 # Slow and gentle but a bit rockety
+        self.set_delay = 0.017 # Slow and gentle but a bit rockety
         # self.set_delay = 0.02 # TOO ROUGH FOR BOT TO LAST 
 
         self.state = { "medial_rotater":{"motor_name": "medial_rotater",
@@ -242,9 +242,9 @@ if __name__ == '__main__':
         print("5")
         AB.flex_servo(70, 1, servo_name="medial_rotater")
         print("6")
-        AB.flex_servo(71, 1, 86, servo_name="medial_rotater")
+        AB.flex_servo(80, 1, 86, servo_name="medial_rotater")
         print("7")
-        AB.flex_servo(30, 1, servo_name="medial_rotater")
+        AB.flex_servo(90, 1, servo_name="medial_rotater")
         print("8")
         AB.flex_servo(30, 1, "medial_rotater")
         print("Shutting down . . .")
