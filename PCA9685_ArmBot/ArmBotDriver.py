@@ -162,45 +162,45 @@ class ArmBot:
         time.sleep(hold_time)
 
 
-def flex_servo(self, flex_intensity, hold_time, servo_number=86, servo_name=""):
-    if servo_number != 86:
-        for each in self.state:
-            if self.state[each]["channel_assingnment"] == servo_number:
-                self.state[each]["next_angle"] = (self.state[each]["state_angle"]+flex_intensity)
-                self.rectify_angle()
-                time.sleep(hold_time)
+    def flex_servo(self, flex_intensity, hold_time, servo_number=86, servo_name=""):
+        if servo_number != 86:
+            for each in self.state:
+                if self.state[each]["channel_assingnment"] == servo_number:
+                    self.state[each]["next_angle"] = (self.state[each]["state_angle"]+flex_intensity)
+                    self.rectify_angle()
+                    time.sleep(hold_time)
 
-                self.state[each]["next_angle"] = (self.state[each]["state_angle"]-flex_intensity)
-                self.rectify_angle()
-                time.sleep(hold_time)
-                
-                self.state[each]["next_angle"] = (self.state[each]["state_angle"]-flex_intensity)
-                self.rectify_angle()
-                time.sleep(hold_time)
+                    self.state[each]["next_angle"] = (self.state[each]["state_angle"]-flex_intensity)
+                    self.rectify_angle()
+                    time.sleep(hold_time)
+                    
+                    self.state[each]["next_angle"] = (self.state[each]["state_angle"]-flex_intensity)
+                    self.rectify_angle()
+                    time.sleep(hold_time)
 
-                self.state[each]["next_angle"] = (self.state[each]["state_angle"]+flex_intensity)
-                self.rectify_angle()
-                time.sleep(hold_time)
+                    self.state[each]["next_angle"] = (self.state[each]["state_angle"]+flex_intensity)
+                    self.rectify_angle()
+                    time.sleep(hold_time)
 
-    elif servo_name != "":
-        self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]+flex_intensity)
-        self.rectify_angle()
-        time.sleep(hold_time)
+        elif servo_name != "":
+            self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]+flex_intensity)
+            self.rectify_angle()
+            time.sleep(hold_time)
 
-        self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]-flex_intensity)
-        self.rectify_angle()
-        time.sleep(hold_time)
+            self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]-flex_intensity)
+            self.rectify_angle()
+            time.sleep(hold_time)
 
-        self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]-flex_intensity)
-        self.rectify_angle()
-        time.sleep(hold_time)
+            self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]-flex_intensity)
+            self.rectify_angle()
+            time.sleep(hold_time)
 
-        self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]+flex_intensity)
-        self.rectify_angle()
-        time.sleep(hold_time)
+            self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]+flex_intensity)
+            self.rectify_angle()
+            time.sleep(hold_time)
 
-    else:
-        raise Exception("Unidentified Servo Error")
+        else:
+            raise Exception("Unidentified Servo Error")
 
 if __name__ == '__main__':
     AB = ArmBot(medial_rotater=10, medial_extensor=5, medial_flexor=8, distal_flexor=1, distal_rotater=0, distal_grip=4)
