@@ -142,7 +142,7 @@ class ArmBot:
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
         self.state["medial_flexor"]["next_angle"] = 144 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
-        self.state["distal_flexor"]["next_angle"] = 114 # 1
+        self.state["distal_flexor"]["next_angle"] = 135 # 1
         # Base Rotation (Lower numbers move to Bots right)
         self.state["medial_rotater"]["next_angle"] = 150 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
@@ -159,7 +159,7 @@ class ArmBot:
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
         self.state["medial_flexor"]["next_angle"] = 144 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
-        self.state["distal_flexor"]["next_angle"] = 114 # 1
+        self.state["distal_flexor"]["next_angle"] = 135 # 1
         # Base Rotation (Lower numbers move to Bots right)
         self.state["medial_rotater"]["next_angle"] = 150 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
@@ -176,7 +176,7 @@ class ArmBot:
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
         self.state["medial_flexor"]["next_angle"] = 36 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
-        self.state["distal_flexor"]["next_angle"] = 135 # 1
+        self.state["distal_flexor"]["next_angle"] = 225 # 1
         # Base Rotation (Lower numbers move to Bots right)
         self.state["medial_rotater"]["next_angle"] = 150 # 10
         # Wrist Rotation (Lower numbers rotate to bots left)
