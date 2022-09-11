@@ -109,13 +109,13 @@ class ArmBot:
                     if abs(discrepancy) < step_size:
                         step_size = abs(discrepancy)
                     if discrepancy < 0:
-                        # print("Negative")
+                        print("Negative")
                         if self.state[each]["next_angle"] < self.state[each]["MIN_ANG"]:
                             self.state[each]["next_angle"] = self.state[each]["MIN_ANG"]
                         self.pca.servo[self.state[each]["channel_assingnment"]].angle = self.state[each]["state_angle"]-step_size
                         self.state[each]["state_angle"] = self.state[each]["state_angle"]-step_size
                     if discrepancy > 0:
-                        # print("Positive")
+                        print("Positive")
                         if self.state[each]["next_angle"] > self.state[each]["MAX_ANG"]:
                             self.state[each]["next_angle"] = self.state[each]["MAX_ANG"]
                         self.pca.servo[self.state[each]["channel_assingnment"]].angle = self.state[each]["state_angle"]+step_size
@@ -208,11 +208,11 @@ class ArmBot:
                 if self.state[each]["channel_assingnment"] == servo_number:
                     self.state[each]["next_angle"] = (self.state[each]["state_angle"]+step)
                     print(self.state[each]["state_angle"]+step)
-                    self.rectify_angle("soft")
+                    self.rectify_angle()
         elif servo_name != "":
             self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]+step)
             print((self.state[servo_name]["state_angle"]+step))
-            self.rectify_angle("soft")
+            self.rectify_angle()
 
     def step_servo(self, step, servo_number=86, servo_name=""):
         if servo_number != 86:
@@ -316,13 +316,13 @@ class ArmBot:
 
 
             
-            if keyboard.is_pressed('r'):
-                print('r pressed')
+            if keyboard.is_pressed('f'):
+                print('f pressed')
                 self.soft_step(+step_setting, servo_name="distal_flexor")
                 # self.soft_step(-step_setting, servo_name="distal_flexor")
 
-            if keyboard.is_pressed('f'):
-                print('f pressed')
+            if keyboard.is_pressed('r'):
+                print('r pressed')
                 # self.soft_step(+step_setting, servo_name="distal_flexor")
                 self.soft_step(-step_setting, servo_name="distal_flexor")
 
