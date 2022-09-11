@@ -282,9 +282,9 @@ class ArmBot:
         counter = 0
         while eventMode == True:
             # Check if Esc or Q has been pressed
-            if keyboard.is_pressed('q'):
-                print('q pressed')
-                eventMode = False
+            # if keyboard.is_pressed('q'):
+            #     print('q pressed')
+            #     eventMode = False
             if keyboard.is_pressed('esc'):
                 print('esc pressed')
                 eventMode = False
