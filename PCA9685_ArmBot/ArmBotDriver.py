@@ -130,7 +130,7 @@ class ArmBot:
                         self.state[each]["next_angle"] = self.state[each]["MAX_ANG"]
                     if self.state[each]["next_angle"] < self.state[each]["MIN_ANG"]:
                         self.state[each]["next_angle"] = self.state[each]["MIN_ANG"]
-                    print('NEXT: '+self.state[each]["next_angle"])
+                    print('NEXT: '+str(self.state[each]["next_angle"]))
                     self.pca.servo[self.state[each]["channel_assingnment"]].angle = self.state[each]["next_angle"]
                     self.state[each]["state_angle"] = self.state[each]["next_angle"]
                     time.sleep(self.set_delay)
