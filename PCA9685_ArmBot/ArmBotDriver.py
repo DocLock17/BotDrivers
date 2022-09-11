@@ -209,11 +209,11 @@ class ArmBot:
                 if self.state[each]["channel_assingnment"] == servo_number:
                     self.state[each]["next_angle"] = (self.state[each]["state_angle"]+step)
                     print(self.state[each]["state_angle"]+step)
-                    self.rectify_angle()
+                    self.rectify_angle('hard')
         elif servo_name != "":
             self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]+step)
             print((self.state[servo_name]["state_angle"]+step))
-            self.rectify_angle()
+            self.rectify_angle('hard')
 
     def step_servo(self, step, servo_number=86, servo_name=""):
         if servo_number != 86:
