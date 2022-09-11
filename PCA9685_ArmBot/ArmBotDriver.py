@@ -462,7 +462,9 @@ if __name__ == '__main__':
         time.sleep(.5)
         AB.set_posture(hold_time=2, medial_extensor = 200)
         time.sleep(.5)
+        print("Entering Manual Control Mode")
         AB.keyboard_operation()
+        print("Exiting Manual Control Mode")
         time.sleep(2)
 
         print("Shutting down . . .")
