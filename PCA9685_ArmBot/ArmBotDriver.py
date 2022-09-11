@@ -202,6 +202,18 @@ class ArmBot:
         self.rectify_angle()
         time.sleep(hold_time)
 
+    def soft_step(self, step, servo_number=86, servo_name=""):
+        if servo_number != 86:
+            for each in self.state:
+                if self.state[each]["channel_assingnment"] == servo_number:
+                    self.state[each]["next_angle"] = (self.state[each]["state_angle"]+step)
+                    print(self.state[each]["state_angle"]+step)
+                    self.rectify_angle("soft")
+        elif servo_name != "":
+            self.state[servo_name]["next_angle"] = (self.state[servo_name]["state_angle"]+step)
+            print((self.state[servo_name]["state_angle"]+step))
+            self.rectify_angle("soft")
+
     def step_servo(self, step, servo_number=86, servo_name=""):
         if servo_number != 86:
             for each in self.state:
@@ -261,6 +273,130 @@ class ArmBot:
 
         else:
             raise Exception("Unidentified Servo Error")
+
+    def keyboard_operation(self,step_setting = 3):
+        import keyboard
+        
+        eventMode = True
+        counter = 0
+        while eventMode == True:
+            # Check if Esc or Q has been pressed
+            if keyboard.is_pressed('q'):
+                print('q pressed')
+                eventMode = False
+            if keyboard.is_pressed('esc'):
+                print('esc pressed')
+                eventMode = False
+
+        # Loop Check For Testing
+            # print("endless loop", counter)
+            # counter += 1
+            # sleep(1)
+                
+            # Trap ASWD
+            if keyboard.is_pressed('a'):
+                print('a pressed')
+                self.soft_step(+step_setting, servo_name="medial_rotater")
+                # self.soft_step(-step_setting, servo_name="medial_rotater")
+
+            if keyboard.is_pressed('s'):
+                print('s pressed')
+                # self.soft_step(+step_setting, servo_name="medial_flexor")
+                self.soft_step(-step_setting, servo_name="medial_flexor")
+
+            if keyboard.is_pressed('w'):
+                print('w pressed')
+                # self.soft_step(+step_setting, servo_name="medial_rotater")
+                self.soft_step(-step_setting, servo_name="medial_rotater")
+
+            if keyboard.is_pressed('d'):
+                print('d pressed')
+                self.soft_step(+step_setting, servo_name="medial_flexor")
+                # self.soft_step(-step_setting, servo_name="medial_flexor")
+            
+            if keyboard.is_pressed('r'):
+                print('r pressed')
+                self.soft_step(+step_setting, servo_name="distal_flexor")
+                # self.soft_step(-step_setting, servo_name="distal_flexor")
+
+            if keyboard.is_pressed('f'):
+                print('f pressed')
+                # self.soft_step(+step_setting, servo_name="distal_flexor")
+                self.soft_step(-step_setting, servo_name="distal_flexor")
+
+            if keyboard.is_pressed('q'):
+                print('q pressed')
+                self.soft_step(+step_setting, servo_name="distal_grip")
+                # self.soft_step(-step_setting, servo_name="distal_grip")
+
+
+            if keyboard.is_pressed('e'):
+                print('e pressed')
+                # self.soft_step(+step_setting, servo_name="distal_grip")
+                self.soft_step(-step_setting, servo_name="distal_grip")
+
+            
+
+            # Trap LRUP
+            if keyboard.is_pressed('left'):
+                print('left pressed')
+                self.soft_step(+step_setting, servo_name="distal_rotater")
+                # self.soft_step(-step_setting, servo_name="distal_rotater")
+
+            if keyboard.is_pressed('right'):
+                print('right pressed')
+                # self.soft_step(+step_setting, servo_name="distal_rotater")
+                self.soft_step(-step_setting, servo_name="distal_rotater")
+
+            if keyboard.is_pressed('up'):
+                print('up pressed')
+                self.soft_step(+step_setting, servo_name="medial_extensor")
+                # self.soft_step(-step_setting, servo_name="medial_extensor")
+            if keyboard.is_pressed('down'):
+                print('down pressed')
+                # self.soft_step(+step_setting, servo_name="medial_extensor")
+                self.soft_step(-step_setting, servo_name="medial_extensor")
+
+
+            #Trap Numbers for Speed Control
+            if keyboard.is_pressed('1'):
+                print('1 pressed')
+                self.base_posture()
+            if keyboard.is_pressed('2'):
+                print('2 pressed')
+                self.shutdown_posture()
+            if keyboard.is_pressed('3'):
+                print('3 pressed')
+            if keyboard.is_pressed('4'):
+                print('4 pressed')
+            if keyboard.is_pressed('5'):
+                print('5 pressed')
+            if keyboard.is_pressed('6'):
+                print('6 pressed')
+            if keyboard.is_pressed('7'):
+                print('7 pressed')
+            if keyboard.is_pressed('8'):
+                print('8 pressed')            
+            if keyboard.is_pressed('9'):
+                print('9 pressed')
+            if keyboard.is_pressed('0'):
+                print('0 pressed')
+
+            # Trap Special Keys for future uses
+            if keyboard.is_pressed('space'):
+                print('space pressed')
+            if keyboard.is_pressed('enter'):
+                print('enter pressed')
+        # key = keyboard.read_event() # Gets the current key code
+        # print(key) #prints the current key code
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     AB = ArmBot(medial_rotater=10, medial_extensor=5, medial_flexor=8, distal_flexor=1, distal_rotater=0, distal_grip=4)
@@ -326,6 +462,8 @@ if __name__ == '__main__':
         time.sleep(.5)
         AB.set_posture(hold_time=2, medial_extensor = 200)
         time.sleep(.5)
+        AB.keyboard_operation()
+        time.sleep(2)
 
         print("Shutting down . . .")
         AB.shutdown_posture()
