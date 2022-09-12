@@ -276,7 +276,7 @@ class ArmBot:
         else:
             raise Exception("Unidentified Servo Error")
 
-    def keyboard_operation(self,step_setting = 3):
+    def keyboard_operation(self,step_setting = 1):
         import keyboard
         
         eventMode = True
