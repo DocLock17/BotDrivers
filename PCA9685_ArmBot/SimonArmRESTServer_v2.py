@@ -24,43 +24,6 @@ AB = ArmBot(medial_rotater=10, medial_extensor=5, medial_flexor=8, distal_flexor
 def turnOffMotors():
 	AB.pcaCleanup()
 
-def rightHandStep(direction): # 0=Opening,1=Closing
-    try:
-        print("test")
-    except KeyboardInterrupt:
-        turnOffMotors()
-    except Exception as e:
-        turnOffMotors()
-        print(e)
-        
-
-# Instatiate flask server
-app = Flask(__name__)
-
-# Set up one endpoint
-@app.route('/', methods=['GET'])
-def landing():
-    # Return JSON body
-    return """Welcome to PalindREST, a simple REST API for reversing a string. Submit a PUT request using the 'input' \
-    KEY and a string VALUE of your choice and the reverse string will be returned as the VALUE of the 'body' KEY.""", 200
-
-# Final PUT endpoint
-@app.route('/', methods=['PUT'])
-def string_flip():
-    put_input = request.args.get('input')
-    process_put(put_input)
-    # Reverse using slicing
-    body_output = put_input[::-1]
-    print("Test")
-    # Return reversed string
-    return jsonify(body=body_output), 200
-
-if __name__ == '__main__':
-    atexit.register(turnOffMotors)
-    server_port = os.environ.get('PORT', '8080')
-    app.run(debug=False, port=server_port, host='0.0.0.0')
-
-
 def process_put(key):
     
 #  if event.type == 768: # 768 means KeyDown 769 means KeyUp
@@ -113,7 +76,99 @@ def process_put(key):
         print("UP")
         # sendKey(key)
     else:
-        print(str(key) + " " + str(unicode))
+        print(str(key) + " ")
+
+
+def rightHandStep(direction): # 0=Opening,1=Closing
+    try:
+        print("test")
+    except KeyboardInterrupt:
+        turnOffMotors()
+    except Exception as e:
+        turnOffMotors()
+        print(e)
+        
+
+# Instatiate flask server
+app = Flask(__name__)
+
+# Set up one endpoint
+@app.route('/', methods=['GET'])
+def landing():
+    # Return JSON body
+    return """Welcome to PalindREST, a simple REST API for reversing a string. Submit a PUT request using the 'input' \
+    KEY and a string VALUE of your choice and the reverse string will be returned as the VALUE of the 'body' KEY.""", 200
+
+# Final PUT endpoint
+@app.route('/', methods=['PUT'])
+def string_flip():
+    put_input = request.args.get('input')
+    process_put(put_input)
+    # Reverse using slicing
+    body_output = put_input[::-1]
+    print("Test")
+    # Return reversed string
+    return jsonify(body=body_output), 200
+
+if __name__ == '__main__':
+    atexit.register(turnOffMotors)
+    server_port = os.environ.get('PORT', '8080')
+    app.run(debug=False, port=server_port, host='0.0.0.0')
+
+
+# def process_put(key):
+    
+# #  if event.type == 768: # 768 means KeyDown 769 means KeyUp
+#     if key == 97:  # a
+#         print("a")
+#         # sendKey(key)
+#     elif key == 115: # s
+#         print("s")
+#         # sendKey(key)
+#     elif key == 100: # d
+#         print("d")
+#         # sendKey(key)
+#     elif key == 119: # w
+#         print("w")
+#         # sendKey(key)
+#     elif key == 121: # y
+#         print("y")
+#         # sendKey(key)
+#     elif key == 104: # h
+#         print("h")
+#         # sendKey(key)
+#     elif key == 117: # u
+#         print("u")
+#         # sendKey(key)
+#     elif key == 106: # j
+#         print("j")
+#         # sendKey(key)
+#     elif key == 105: # i
+#         print("i")
+#         # sendKey(key)
+#     elif key == 107: # k
+#         print("k")
+#         # sendKey(key)
+#     elif key == 111: # o
+#         print("o")
+#         # sendKey(key)
+#     elif key == 108: # l
+#         print("l")
+#         # sendKey(key)
+#     elif key == 1073741904 : # Arrow
+#         print("LEFT")
+#         # sendKey(key)
+#     elif key == 1073741905 : # Arrow
+#         print("DOWN")
+#         # sendKey(key)
+#     elif key == 1073741903 : # Arrow
+#         print("RIGHT")
+#         # sendKey(key)
+#     elif key == 1073741906 : # Arrow
+#         print("UP")
+#         # sendKey(key)
+#     else:
+#         print(str(key) + " " + str(unicode))
 
 
 
