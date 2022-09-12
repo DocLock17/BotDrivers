@@ -103,6 +103,7 @@ def landing():
 @app.route('/', methods=['PUT'])
 def string_flip():
     put_input = request.args.get('input')
+    print(put_input)
     process_put(put_input)
     # Reverse using slicing
     body_output = put_input[::-1]
