@@ -2,7 +2,7 @@
 
 # We could probably just use sockets but for ease of use we will use flask to serve, and since the requirements
 # require json interaction we will import jsonify as well
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, requests
 
 import time
 
@@ -46,7 +46,7 @@ def landing():
 # Final PUT endpoint
 @app.route('/', methods=['PUT'])
 def string_flip():
-    put_input = request.args.get('input')
+    put_input = requests.args.get('input')
     # Reverse using slicing
     body_output = put_input[::-1]
     print("Test")
