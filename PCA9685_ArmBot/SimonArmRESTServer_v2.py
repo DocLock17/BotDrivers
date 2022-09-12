@@ -25,6 +25,7 @@ def turnOffMotors():
 	AB.pcaCleanup()
 
 def process_put(key):
+    print("This Key ", key)
     
 #  if event.type == 768: # 768 means KeyDown 769 means KeyUp
     if key == 97:  # a
