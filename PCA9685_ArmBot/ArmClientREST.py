@@ -3,12 +3,12 @@ import requests
 # import time
 import pygame, sys
 import pygame.locals
-from random import randint
+# from random import randint
 # from PIL import Image
 # import base64
 # import numpy as np
 # import cv2
-import io
+# import io
 
 application_address = 'http://10.0.0.97:8080'
 
@@ -37,7 +37,7 @@ def getFrame():
 pygame.init()
 BLACK = (0,0,0)
 WIDTH = 480
-HEIGHT = 640
+HEIGHT = 480 #640
 windowSurface = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
 pygame.display.set_caption('Remote Webcam Viewer')
 font = pygame.font.SysFont("Arial",14)
