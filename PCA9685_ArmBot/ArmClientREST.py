@@ -10,7 +10,7 @@ from random import randint
 # import cv2
 import io
 
-application_address = 'http://10.0.0.97:8080'
+application_address = 'http://10.0.0.97:5000'
 
 def sendKey(key):
     """ Sends Key Events from pygame to application Server"""

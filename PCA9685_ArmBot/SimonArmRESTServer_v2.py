@@ -3,6 +3,7 @@
 # We could probably just use sockets but for ease of use we will use flask to serve, and since the requirements
 # require json interaction we will import jsonify as well
 from flask import Flask, jsonify, request
+import os
 
 import time
 
@@ -55,4 +56,5 @@ def string_flip():
 
 if __name__ == '__main__':
     atexit.register(turnOffMotors)
-    app.run()
+    server_port = os.environ.get('PORT', '8080')
+    app.run(debug=False, port=server_port, host='0.0.0.0')
