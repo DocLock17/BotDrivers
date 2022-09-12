@@ -149,7 +149,7 @@ class ArmBot:
         # Wrist Rotation (Lower numbers rotate to bots left)
         self.state["distal_rotater"]["next_angle"] = 135 # 0
         # Grip
-        self.state["distal_grip"]["next_angle"] = 80 # 4
+        self.state["distal_grip"]["next_angle"] = 150 # 4
         self.rectify_angle("hard")
         time.sleep(hold_time)
 
@@ -166,7 +166,7 @@ class ArmBot:
         # Wrist Rotation (Lower numbers rotate to bots left)
         self.state["distal_rotater"]["next_angle"] = 135 # 0
         # Grip
-        self.state["distal_grip"]["next_angle"] = 80 # 4
+        self.state["distal_grip"]["next_angle"] = 150 # 4
         self.rectify_angle()
         time.sleep(hold_time)
 
@@ -183,7 +183,7 @@ class ArmBot:
         # Wrist Rotation (Lower numbers rotate to bots left)
         self.state["distal_rotater"]["next_angle"] = 135 # 0
         # Grip
-        self.state["distal_grip"]["next_angle"] = 80 # 4
+        self.state["distal_grip"]["next_angle"] = 150 # 4
         self.rectify_angle()
         time.sleep(hold_time)
 
