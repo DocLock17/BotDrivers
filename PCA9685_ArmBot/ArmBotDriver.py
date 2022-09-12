@@ -139,7 +139,7 @@ class ArmBot:
     def start_posture(self, hold_time=2):
         """Declare stiff arm"""
         # Base Shoulder (lower numbers extend arm away from bot)
-        self.state["medial_extensor"]["next_angle"] = 20 # 5
+        self.state["medial_extensor"]["next_angle"] = 40 # 5
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
         self.state["medial_flexor"]["next_angle"] = 200 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
@@ -156,7 +156,7 @@ class ArmBot:
     def shutdown_posture(self, hold_time=2):
         """Declare stiff arm"""
         # Base Shoulder (lower numbers extend arm away from bot)
-        self.state["medial_extensor"]["next_angle"] = 20 # 5
+        self.state["medial_extensor"]["next_angle"] = 40 # 5
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
         self.state["medial_flexor"]["next_angle"] = 200 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
