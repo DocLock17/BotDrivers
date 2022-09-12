@@ -12,6 +12,7 @@ class ArmBot:
     def __init__(self, medial_rotater=10, medial_extensor=5, medial_flexor=8, distal_flexor=1, distal_rotater=0, distal_grip=4):
         """Declare Arm Variables"""
         self.pca = ServoKit(channels=16)
+        self.pca.frequency = 50
         self.nbPCAServo = 16
         
         # self.set_delay = 0.007 # quick but not destroy yourself fast
