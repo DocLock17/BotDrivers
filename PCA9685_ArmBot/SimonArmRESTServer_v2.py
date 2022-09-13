@@ -63,7 +63,6 @@ def process_put(key):
 
         elif key == 105: # i
             print("i")
-            # AB.startup_posture(1)
             
 
         elif key == 106: # j
@@ -144,19 +143,19 @@ def process_put(key):
             
         elif key == 49: # 1
             print("1")
-            # AB.starting_posture(1)
+            AB.starting_posture(1)
 
         elif key == 50: # 2
             print("2")
-            # AB.reaching_posture(1)
+            AB.reaching_posture(1)
             
         elif key == 51: # 3
             print("3")
-            # AB.base_posture(1)
+            AB.base_posture(1)
             
         elif key == 52: # 4
             print("4")
-            # AB.shutdown_posture(1)
+            AB.shutdown_posture(1)
             
         elif key == 53: # 5
             print("5")
@@ -200,7 +199,7 @@ def process_put(key):
             
         elif key == 27 : # ESC
             print("ESC")
-            # AB.pcaCleanup()
+            AB.pcaCleanup()
             
         elif key == 32 : # Space
             print("Space")
