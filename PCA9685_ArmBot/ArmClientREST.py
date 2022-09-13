@@ -210,6 +210,10 @@ while True:
                 print("Return/Enter")
                 sendKey(event.key)
 
+            elif event.key == 27 : # ESC
+                print("ESC")
+                sendKey(event.key)
+
             elif event.key == 32 : # Space
                 print("Space")
                 sendKey(event.key)
