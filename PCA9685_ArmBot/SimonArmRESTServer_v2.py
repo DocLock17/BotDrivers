@@ -17,7 +17,7 @@ import atexit
 
 # from waitress import serve
 AB = ArmBot(medial_rotater=10, medial_extensor=5, medial_flexor=8, distal_flexor=1, distal_rotater=0, distal_grip=4)
-
+step_setting = 1
 
 
 # recommended for auto-disabling motors on shutdown!
@@ -25,71 +25,85 @@ def turnOffMotors():
 	AB.pcaCleanup()
 
 def process_put(key):
-    print("This Key ", key)
-    if key == 100:
-        print("Success")
-    
-#  if event.type == 768: # 768 means KeyDown 769 means KeyUp
-    if key == 97:  # a
-        print("a")
-        # sendKey(key)
-    elif key == 115: # s
-        print("s")
-        # sendKey(key)
-    elif key == 100: # d
-        print("d")
-        # sendKey(key)
-    elif key == 119: # w
-        print("w")
-        # sendKey(key)
-    elif key == 121: # y
-        print("y")
-        # sendKey(key)
-    elif key == 104: # h
-        print("h")
-        # sendKey(key)
-    elif key == 117: # u
-        print("u")
-        # sendKey(key)
-    elif key == 106: # j
-        print("j")
-        # sendKey(key)
-    elif key == 105: # i
-        print("i")
-        # sendKey(key)
-    elif key == 107: # k
-        print("k")
-        # sendKey(key)
-    elif key == 111: # o
-        print("o")
-        # sendKey(key)
-    elif key == 108: # l
-        print("l")
-        # sendKey(key)
-    elif key == 1073741904 : # Arrow
-        print("LEFT")
-        # sendKey(key)
-    elif key == 1073741905 : # Arrow
-        print("DOWN")
-        # sendKey(key)
-    elif key == 1073741903 : # Arrow
-        print("RIGHT")
-        # sendKey(key)
-    elif key == 1073741906 : # Arrow
-        print("UP")
-        # sendKey(key)
-    else:
-        print(str(key) + " ")
-
-
-def rightHandStep(direction): # 0=Opening,1=Closing
     try:
-        print("test")
+#  if event.type == 768: # 768 means KeyDown 769 means KeyUp
+        if key == 97:  # a
+            print("a")
+            # AB.soft_step(+step_setting, servo_name="medial_rotater")
+            
+                
+        elif key == 115: # s
+            print("s")
+            # AB.soft_step(-step_setting, servo_name="medial_flexor")
+
+        elif key == 100: # d
+            print("d")
+            # AB.soft_step(-step_setting, servo_name="medial_rotater")
+
+        elif key == 119: # w
+            print("w")
+            # AB.soft_step(+step_setting, servo_name="medial_flexor")
+
+        elif key == 121: # y
+            print("y")
+            # sendKey(key)
+        elif key == 104: # h
+            print("h")
+            # sendKey(key)
+        elif key == 117: # u
+            print("u")
+            # sendKey(key)
+        elif key == 106: # j
+            print("j")
+            # sendKey(key)
+        elif key == 105: # i
+            print("i")
+            # sendKey(key)
+        elif key == 107: # k
+            print("k")
+            # sendKey(key)
+        elif key == 111: # o
+            print("o")
+            # sendKey(key)
+        elif key == 108: # l
+            print("l")
+            # sendKey(key)
+
+        elif key == 1073741904 : # Arrow
+            print("LEFT")
+            # sendKey(key)
+        elif key == 1073741905 : # Arrow
+            print("DOWN")
+            # sendKey(key)
+        elif key == 1073741903 : # Arrow
+            print("RIGHT")
+            # sendKey(key)
+        elif key == 1073741906 : # Arrow
+            print("UP")
+
+
+        elif key == 27 : # ESC
+            print("ESC")
+            # AB.pcaCleanup()
+
+        else:
+            print(str(key) + " ")
+
     except KeyboardInterrupt:
         turnOffMotors()
     except Exception as e:
         turnOffMotors()
         print(e)
+
+
+# def rightHandStep(direction): # 0=Opening,1=Closing
+#     try:
+#         print("test")
+#     except KeyboardInterrupt:
+#         turnOffMotors()
+#     except Exception as e:
+#         turnOffMotors()
+#         print(e)
         
 
 # Instatiate flask server
@@ -106,11 +120,11 @@ def landing():
 @app.route('/', methods=['PUT'])
 def string_flip():
     put_input = request.args.get('input')
-    print(put_input)
+    # print(put_input)
     process_put(int(put_input))
     # Reverse using slicing
-    body_output = put_input[::-1]
-    print("Test")
+    body_output = put_input
+    # print("Test")
     # Return reversed string
     return jsonify(body=body_output), 200
 
