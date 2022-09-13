@@ -17,7 +17,7 @@ import atexit
 
 # from waitress import serve
 AB = ArmBot(medial_rotater=10, medial_extensor=5, medial_flexor=8, distal_flexor=1, distal_rotater=0, distal_grip=4)
-step_setting = 3
+step_setting = 2.5
 
 
 # recommended for auto-disabling motors on shutdown!
