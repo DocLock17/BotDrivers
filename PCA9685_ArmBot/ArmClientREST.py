@@ -96,6 +96,7 @@ while True:
                 print("UP")
                 sendKey(event.key)
             else:
+                print("unstored")
                 print(str(event.key) + " " + str(event.unicode))
 
         if event.type == pygame.locals.QUIT:
