@@ -63,6 +63,7 @@ def process_put(key):
 
         elif key == 105: # i
             print("i")
+            # AB.startup_posture(1)
             
 
         elif key == 106: # j
@@ -137,28 +138,26 @@ def process_put(key):
             print("z")
             
 
+
         elif key == 48: # 0
             print("0")
             
-
         elif key == 49: # 1
             print("1")
-            # AB.base_posture()
-            
+            # AB.starting_posture(1)
 
         elif key == 50: # 2
             print("2")
-            # AB.shutdown_posture()
+            # AB.reaching_posture(1)
             
-
         elif key == 51: # 3
             print("3")
+            # AB.base_posture(1)
             
-
         elif key == 52: # 4
             print("4")
+            # AB.shutdown_posture(1)
             
-
         elif key == 53: # 5
             print("5")
             
@@ -196,22 +195,16 @@ def process_put(key):
             print("UP")
             # AB.soft_step(+step_setting, servo_name="medial_extensor")
             
-
         elif key == 13 : # Return/Enter
             print("Return/Enter")
             
-
-        elif key == 27 : # ESC
-            print("ESC")
-            
-
-        elif key == 32 : # Space
-            print("Space")
-            
-
         elif key == 27 : # ESC
             print("ESC")
             # AB.pcaCleanup()
+            
+        elif key == 32 : # Space
+            print("Space")
+            
 
         else:
             print(str(key) + " ")
@@ -250,6 +243,6 @@ if __name__ == '__main__':
     server_port = os.environ.get('PORT', '8080')
     app.run(debug=False, port=server_port, host='0.0.0.0')
 
-    
+
 
 

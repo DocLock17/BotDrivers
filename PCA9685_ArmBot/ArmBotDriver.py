@@ -137,7 +137,7 @@ class ArmBot:
                     time.sleep(self.set_delay)
 
 
-    def start_posture(self, hold_time=2):
+    def starting_posture(self, hold_time=2):
         """Declare stiff arm"""
         # Base Shoulder (lower numbers extend arm away from bot)
         self.state["medial_extensor"]["next_angle"] = 40 # 5
@@ -152,6 +152,23 @@ class ArmBot:
         # Grip
         self.state["distal_grip"]["next_angle"] = 150 # 4
         self.rectify_angle("hard")
+        time.sleep(hold_time)
+    
+    def reaching_posture(self, hold_time=2):
+        """Declare stiff arm"""
+        # Base Shoulder (lower numbers extend arm away from bot)
+        self.state["medial_extensor"]["next_angle"] = 135 # 5
+        # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
+        self.state["medial_flexor"]["next_angle"] = 50 # 8
+        # Lower Elbow (lower numbers lifts up) DIstal
+        self.state["distal_flexor"]["next_angle"] = 135 # 1
+        # Base Rotation (Lower numbers move to Bots right)
+        self.state["medial_rotater"]["next_angle"] = 135 # 10
+        # Wrist Rotation (Lower numbers rotate to bots left)
+        self.state["distal_rotater"]["next_angle"] = 135 # 0
+        # Grip
+        self.state["distal_grip"]["next_angle"] = 150 # 4
+        self.rectify_angle()
         time.sleep(hold_time)
 
     def shutdown_posture(self, hold_time=2):
