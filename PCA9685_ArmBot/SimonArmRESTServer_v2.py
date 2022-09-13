@@ -28,7 +28,7 @@ def process_put(key):
     try:
         if key == 97:  # a
             print("a")
-            # AB.soft_step(+step_setting, servo_name="medial_rotater")
+            AB.soft_step(+step_setting, servo_name="medial_rotater")
             
         elif key == 98: # b
             print("b")
@@ -40,17 +40,17 @@ def process_put(key):
         
         elif key == 100: # d
             print("d")
-            # AB.soft_step(-step_setting, servo_name="medial_rotater")
+            AB.soft_step(-step_setting, servo_name="medial_rotater")
             
 
         elif key == 101: # e
             print("e")
-            # AB.soft_step(-step_setting, servo_name="distal_grip")
+            AB.soft_step(-step_setting, servo_name="distal_grip")
             
 
         elif key == 102: # f
             print("f")
-            # AB.soft_step(+step_setting, servo_name="distal_flexor")
+            AB.soft_step(+step_setting, servo_name="distal_flexor")
             
 
         elif key == 103: # g
@@ -95,17 +95,17 @@ def process_put(key):
 
         elif key == 113: # q
             print("q")
-            # AB.soft_step(+step_setting, servo_name="distal_grip")
+            AB.soft_step(+step_setting, servo_name="distal_grip")
             
 
         elif key == 114: # r
             print("r")
-            # AB.soft_step(-step_setting, servo_name="distal_flexor")
+            AB.soft_step(-step_setting, servo_name="distal_flexor")
             
 
         elif key == 115: # s
             print("s")
-            # AB.soft_step(-step_setting, servo_name="medial_flexor")
+            AB.soft_step(-step_setting, servo_name="medial_flexor")
             
 
         elif key == 116: # t
@@ -122,7 +122,7 @@ def process_put(key):
 
         elif key == 119: # w
             print("w")
-            # AB.soft_step(+step_setting, servo_name="medial_flexor")
+            AB.soft_step(+step_setting, servo_name="medial_flexor")
             
 
         elif key == 120: # x
@@ -180,19 +180,19 @@ def process_put(key):
         
         elif key == 1073741904 : # Arrow
             print("LEFT")
-            # AB.soft_step(+step_setting, servo_name="distal_rotater")
+            AB.soft_step(+step_setting, servo_name="distal_rotater")
             
         elif key == 1073741905 : # Arrow
             print("DOWN")
-            # AB.soft_step(-step_setting, servo_name="medial_extensor")
+            AB.soft_step(-step_setting, servo_name="medial_extensor")
             
         elif key == 1073741903 : # Arrow
             print("RIGHT")
-            # AB.soft_step(-step_setting, servo_name="distal_rotater")
+            AB.soft_step(-step_setting, servo_name="distal_rotater")
             
         elif key == 1073741906 : # Arrow
             print("UP")
-            # AB.soft_step(+step_setting, servo_name="medial_extensor")
+            AB.soft_step(+step_setting, servo_name="medial_extensor")
             
         elif key == 13 : # Return/Enter
             print("Return/Enter")

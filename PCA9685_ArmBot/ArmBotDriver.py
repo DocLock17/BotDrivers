@@ -159,7 +159,7 @@ class ArmBot:
         # Base Shoulder (lower numbers extend arm away from bot)
         self.state["medial_extensor"]["next_angle"] = 135 # 5
         # Upper Elbow (Lower numbers lowers arm or Contracts) Medial
-        self.state["medial_flexor"]["next_angle"] = 50 # 8
+        self.state["medial_flexor"]["next_angle"] = 70 # 8
         # Lower Elbow (lower numbers lifts up) DIstal
         self.state["distal_flexor"]["next_angle"] = 135 # 1
         # Base Rotation (Lower numbers move to Bots right)
