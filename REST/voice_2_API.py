@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
 
 # NOTE: requires dependencies
-#sudo apt-get install -y python3-dev libasound2-dev
+#sudo apt-get install python3 python3-all-dev python3-pip build-essential swig git libpulse-dev libasound2-dev libportaudio2 libportaudiocpp0 portaudio19-dev
+
 #sudo apt install espeak -y
 #sudo apt install python3-pyaudio -y
 #sudo apt-get install flac
 
-# pip install pyttsx3
-# pip install simpleaudio
-# pip install SpeechRecognition
-
-## With Sphinx?
-#sudo apt-get install python3 python3-all-dev python3-pip build-essential swig git libpulse-dev libasound2-dev
-#pip3 install pocketsphinx
+# pip3 install pyttsx3
+# pip3 install simpleaudio
+# pip3 install SpeechRecognition
+# pip3 install pocketsphinx
 
 
 mode = 'combine' # 'google', or 'sphinx' or 'combine'
